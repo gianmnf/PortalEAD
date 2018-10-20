@@ -6,6 +6,6 @@
     $valor = $_POST['valor'];
     $sql = "INSERT into atividades(Atividade, valor) VALUES ('$Atividade','$valor')";
     if(mysqli_query($link, $sql)){
-		header("Refresh:2; url=login.php");
+		header("Refresh:2; url=../../index.php");
 	}
 ?>
