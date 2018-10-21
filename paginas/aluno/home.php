@@ -1,8 +1,14 @@
 <?php
 $con=mysqli_connect("localhost","root","","bancoead");
 $sql = "SELECT * FROM atividades";
+$sqlMateriais = "SELECT * FROM materiais";
 $resultado = mysqli_query($con,$sql);
 $resultadoNota = mysqli_query($con,$sql);
+$resultadoMateriais = mysqli_query($con,$sqlMateriais);
+$curso = $_SESSION['curso'];
+$pastaCurso = explode(' ',trim($curso));
+while($colunaMateriais = $resultadoMateriais->fetch_assoc()){ $colunaMat[] = $colunaMateriais; }
+while($colunaNota = $resultado->fetch_assoc()){$colunaNotas[] = $colunaNota;}
 ?>
 <section id="content">
           <!--start container-->
@@ -32,11 +38,11 @@ $resultadoNota = mysqli_query($con,$sql);
           </tr>
         </thead>
         <tbody>
-        <?php while($colunaNota = $resultadoNota->fetch_assoc()){ ?>
+        <?php foreach($colunaNotas as $colNota){ ?>
           <tr>
-            <td style="color:white;"><?php echo utf8_encode($colunaNota["Atividade"]) ?></td>
-            <td style="color:white;"><?php echo utf8_encode($colunaNota["valor"]) ?></td>
-            <td style="color:white;"><?php echo utf8_encode($colunaNota["nota"]) ?></td>
+            <td style="color:white;"><?php echo utf8_encode($colNota["Atividade"]) ?></td>
+            <td style="color:white;"><?php echo utf8_encode($colNota["valor"]) ?></td>
+            <td style="color:white;"><?php echo utf8_encode($colNota["nota"]) ?></td>
           </tr>
         <?php } ?>
         </tbody>
@@ -69,6 +75,36 @@ $resultadoNota = mysqli_query($con,$sql);
             </form>
           </div>
           </div>
+          <hr>
+          <div id="resMateriais" style="color:white; text-align:center;">
+          <h5 id="arg">Resultados da Pesquisa</h5>
+          <table>
+            <thead>
+            <tr>
+              <th style="color:white;">Arquivo</th>
+              <th style="color:white;">Opções</th>
+              <th style="color:white;">Data de Envio</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach($colunaMat as $materiais) { ?>
+          <tr style="color:white;">
+            <td style="color:white;"><?php echo utf8_encode($materiais['arquivo']) ?></td>
+            <td style="color:white;"><button onclick="loadMaterial('1')" id="getMaterial" class="btn modal-trigger">Visualizar/Baixar</button></td>
+            <td style="color:white;"><?php echo $materiais['dataUpload'] ?></td>
+          </tr>
+            <?php } ?>
+            </tbody>
+          </table>
+          </div>
+          <div id="modal" class="modal">
+            <div class="modal-content">
+              <h4>Visualizando Arquivo</h4>
+              <div id="modalContent"></div>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+            </div>
           </div>
           <!--end container-->
         </section>

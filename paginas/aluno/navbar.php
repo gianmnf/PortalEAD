@@ -39,7 +39,7 @@
               <li>
                 <a href="javascript:void(0);" class="waves-effect waves-block waves-light profile-button" data-activates="profile-dropdown">
                   <span class="avatar-status avatar-online">
-                    <img src="images/avatar/avatar-7.png" alt="avatar">
+                    <img src="images/avatar/avatar-12.png" alt="avatar">
                     <i></i>
                   </span>
                   <span><?= $_SESSION['usuario'] ?></span>

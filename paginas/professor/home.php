@@ -46,28 +46,17 @@ $resultado = mysqli_query($con,$sql);
           <div id="materiais" style="display:block; margin:auto; height:100%;">
             <h2 style="text-align:center; color:white">Enviar Materiais</h2>
             <div id="search" style="display:block; text-align:center; margin:auto;">
-            <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Pesquisar Material" style="width:40%; color:white;">
-            <button class="btn-floating waves-effect waves-light cyan" type="button" onclick="pesquisa()" name="action">
-            <i class="material-icons">add</i>     
-            </button>
-            <button class="btn-floating waves-effect waves-light cyan" type="button" onclick="resPesquisa()" name="action">
-            <i class="material-icons">search</i>     
-            </button>
-      </div>
-            <form action="" id="materiaisOpcoes" style="display:none; color:white;">
-            <h5 id="arg">Argumentos da Pesquisa</h5>
-                <label for="chave">Palavras Chave:</label>
-                <input type="text" name="chave">
-                <label for="resp">Nome Responsável:</label>
-                <input type="text" name="resp">
-                <label for="pasta">Pasta:</label>
-                <input type="text" name="pasta">
-                <label for="dataEnvio">Data Postagem Início:</label>
-                <input type="text" name="dataEnvio">
-                <label for="dataFim">Data Postagem Fim:</label>
-                <input type="text" name="dataFim">
-                <br>
+            <form action="paginas/professor/enviaMaterial.php" method="post" enctype="multipart/form-data" id="FormMaterial">
+            <label for="arquivo">Escolha o arquivo</label>
+            <br><br>
+            <input type="text" style="display:none;" name="curso" id="curso" value="<?php echo $_SESSION['curso'] ?>"></input>
+            <input type="file" name="arquivo" placeholder="Arquivo"><br>
+            <br>
+            <input class="btn waves-effect waves-light gradient-45deg-light-blue-indigo" type="submit" value="Enviar">
+            <br><br>
             </form>
+		      	<div class="alert alert-success" role="alert" id="divAlert" style="display: none; margin:auto; text-align: center; width:300px !important;"></div>
+      </div>
           </div>
           </div>
           </div>

@@ -6,3 +6,10 @@ function pesquisa(){
         divMateriais.style.display = "none";
     }
 }
+
+function loadMaterial(idMat){
+    $('#modalContent').load('paginas/aluno/getMaterial.php?id=' + idMat,
+              function() {
+                  $('#modal').modal('open');
+              });
+}

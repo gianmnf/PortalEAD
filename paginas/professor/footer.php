@@ -23,5 +23,15 @@
     <script type="text/javascript" src="js/plugins.js"></script>
     <!--custom-script.js - Add your own theme custom JS-->
     <script type="text/javascript" src="js/script.js"></script>
+    <!-- Envia form silenciosamente usando AJAX e Jquery -->
+		<script>
+		$(function() {
+       $('#FormMaterial').ajaxForm(function() {
+       		var alertOK = document.querySelector('#divAlert');
+       		alertOK.style.display = "block";
+       		alertOK.innerHTML = 'E-mail enviado com sucesso!';
+       });
+     });
+	</script>
   </body>
 </html>
