@@ -7,7 +7,7 @@
             <li class="user-details cyan darken-2">
               <div class="row">
               <h5>Curso:</h5>
-                <select>
+                <select class="browser-default">
                 <option><?= $_SESSION['curso'] ?></option>
                 </select>
               </div>

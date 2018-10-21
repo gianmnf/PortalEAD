@@ -7,8 +7,9 @@ $resultadoNota = mysqli_query($con,$sql);
 $resultadoMateriais = mysqli_query($con,$sqlMateriais);
 $curso = $_SESSION['curso'];
 $pastaCurso = explode(' ',trim($curso));
+while($colunaAtividades = $resultado->fetch_assoc()){ $colunaAtiv[] = $colunaAtividades; }
 while($colunaMateriais = $resultadoMateriais->fetch_assoc()){ $colunaMat[] = $colunaMateriais; }
-while($colunaNota = $resultado->fetch_assoc()){$colunaNotas[] = $colunaNota;}
+while($colunaNota = $resultadoNota->fetch_assoc()){$colunaNotas[] = $colunaNota;}
 ?>
 <section id="content">
           <!--start container-->
@@ -19,7 +20,7 @@ while($colunaNota = $resultado->fetch_assoc()){$colunaNotas[] = $colunaNota;}
           <div id="ativ" style="display:block; margin:auto; height:100%;">
             <h2 style="text-align:center; color:white">Atividades</h2>
             <form action="paginas/aluno/enviaResposta.php" method="POST">
-            <?php while($coluna = $resultado->fetch_assoc()){ ?>
+            <?php foreach($colunaAtiv as $coluna){ ?>
             <h4 id="pergunta" style="color:white;"><?php echo utf8_encode($coluna["Atividade"]) ?></h4>
             <textarea id="resposta" name="resposta[<?php $coluna["id_atividade"] ?>] cols="10" rows="10"></textarea>
             <?php } ?>
