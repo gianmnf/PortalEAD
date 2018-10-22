@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 21-Out-2018 às 22:59
+-- Generation Time: 22-Out-2018 às 18:13
 -- Versão do servidor: 5.7.23
 -- versão do PHP: 7.2.10
 
@@ -88,17 +88,18 @@ CREATE TABLE IF NOT EXISTS `materiais` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `arquivo` varchar(500) COLLATE latin1_general_ci NOT NULL,
   `curso` varchar(200) COLLATE latin1_general_ci DEFAULT NULL,
-  `dataUpload` date DEFAULT NULL,
+  `dataUpload` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
 -- Extraindo dados da tabela `materiais`
 --
 
 INSERT INTO `materiais` (`id`, `arquivo`, `curso`, `dataUpload`) VALUES
-(1, 'Poster.pdf', 'Sistemas', '2018-10-21'),
-(2, 'Teste.pdf', 'Sistemas', '2018-10-21');
+(1, 'Poster.pdf', 'Sistemas', '2018-10-21 00:00:00'),
+(2, 'Teste.pdf', 'Sistemas', '2018-10-21 00:00:00'),
+(3, 'Poster.pdf', 'Treinamento', '2018-10-22 00:00:00');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
