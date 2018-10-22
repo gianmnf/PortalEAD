@@ -3,7 +3,7 @@ $con=mysqli_connect("localhost","root","","bancoead");
 $sql = "SELECT * FROM atividades";
 $resultado = mysqli_query($con,$sql);
 ?>
-<section id="content">
+<section id="content" style="background:transparent !important;">
           <!--start container-->
           <div class="container" style=" ">
           <div id="home" style="display:block; margin:auto; height:100%;">
@@ -27,6 +27,7 @@ $resultado = mysqli_query($con,$sql);
           <tr>
               <th style="color:white;">Atividade</th>
               <th style="color:white;">Valor</th>
+              <th style="color:white;">Resposta</th>
               <th style="color:white;">Valor Obtido</th>
           </tr>
         </thead>
@@ -35,7 +36,8 @@ $resultado = mysqli_query($con,$sql);
           <tr>
             <td style="color:white;"><?php echo utf8_encode($coluna["Atividade"]) ?></td>
             <td style="color:white;"><?php echo utf8_encode($coluna["valor"]) ?></td>
-            <td style="color:white;"><input type="number" name="nota[<?php $coluna["id_atividade"] ?>]" id="nota" placeholder="Insira o valor obtido"></td>
+            <td style="color:white;"><?php echo utf8_encode($coluna["resposta"]) ?></td>
+            <td style="color:white;"><input style="color:white;" type="number" name="nota[<?php $coluna["id_atividade"] ?>]" id="nota" placeholder="Insira o valor obtido"></td>
           </tr>
           <?php } ?>
         </tbody>

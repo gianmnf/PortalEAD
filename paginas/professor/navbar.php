@@ -1,4 +1,7 @@
-  <body>
+  <body style="background:url('images/prof.jpg') no-repeat center center fixed !important; -webkit-background-size: cover !important;
+  -moz-background-size: cover !important;
+  -o-background-size: cover !important;
+  background-size: cover !important;">
     <!-- Start Page Loading -->
     <div id="loader-wrapper">
       <div id="loader"></div>
@@ -32,7 +35,7 @@
               <li>
                 <a href="javascript:void(0);" class="waves-effect waves-block waves-light notification-button" data-activates="notifications-dropdown">
                   <i class="material-icons">notifications_none
-                    <small class="notification-badge pink accent-2">3</small>
+                    <!--<small class="notification-badge pink accent-2"></small>--->
                   </i>
                 </a>
               </li>
@@ -78,21 +81,6 @@
                 </h6>
               </li>
               <li class="divider"></li>
-              <li>
-                <a href="#!" class="grey-text text-darken-2">
-                  <span class="material-icons icon-bg-circle cyan small">assignment_turned_in</span> Atividade Postada: Algoritmos II - Struct</a>
-                <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">agora</time>
-              </li>
-               <li>
-                <a href="#!" class="grey-text text-darken-2">
-                  <span class="material-icons icon-bg-circle cyan small">assignment_turned_in</span> Atividade Postada: Algoritmos II - Arquivo</a>
-                <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">2 horas atrás</time>
-              </li>
-               <li>
-                <a href="#!" class="grey-text text-darken-2">
-                  <span class="material-icons icon-bg-circle cyan small">assignment_turned_in</span> Atividade Postada: Algoritmos II - Código Morse</a>
-                <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">3 dias atrás</time>
-              </li>
             </ul>
             <!-- profile-dropdown -->
             <ul id="profile-dropdown" class="dropdown-content">

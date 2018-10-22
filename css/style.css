@@ -2396,13 +2396,6 @@ ul.side-nav.leftside-navigation li:not(.no-padding) a {
 html, body {
   height: 100%;
 }
-
-body,section{
-    background-image: url("../../images/coding.jpg") !important;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
 body.layout-light ul.side-nav.leftside-navigation {
   top: 62px;
 }

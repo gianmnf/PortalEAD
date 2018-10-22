@@ -10,6 +10,7 @@ $pastaCurso = explode(' ',trim($curso));
 while($colunaAtividades = $resultado->fetch_assoc()){ $colunaAtiv[] = $colunaAtividades; }
 while($colunaMateriais = $resultadoMateriais->fetch_assoc()){ $colunaMat[] = $colunaMateriais; }
 while($colunaNota = $resultadoNota->fetch_assoc()){$colunaNotas[] = $colunaNota;}
+$dist=0;
 ?>
 <section id="content">
           <!--start container-->
@@ -19,6 +20,7 @@ while($colunaNota = $resultadoNota->fetch_assoc()){$colunaNotas[] = $colunaNota;
           </div>
           <div id="ativ" style="display:block; margin:auto; height:100%;">
             <h2 style="text-align:center; color:white">Atividades</h2>
+            <input type="text" style="display:none;" name="cursoGet" id="curso" value="<?php echo $_SESSION['curso'] ?>"></input>
             <form action="paginas/aluno/enviaResposta.php" method="POST">
             <?php foreach($colunaAtiv as $coluna){ ?>
             <h4 id="pergunta" style="color:white;"><?php echo utf8_encode($coluna["Atividade"]) ?></h4>
@@ -48,19 +50,20 @@ while($colunaNota = $resultadoNota->fetch_assoc()){$colunaNotas[] = $colunaNota;
         <?php } ?>
         </tbody>
       </table>
+      <div id="container" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
           </div>
           <div id="materiais" style="display:block; margin:auto; height:100%;">
             <h2 style="text-align:center; color:white">Materiais</h2>
             <div id="search" style="display:block; text-align:center; margin:auto;">
-            <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Pesquisar Material" style="width:40%; color:white;">
-            <button class="btn-floating waves-effect waves-light cyan" type="button" onclick="pesquisa()" name="action">
-            <i class="material-icons">add</i>     
-            </button>
+            <input type="text" name="Search" id="busca" class="header-search-input z-depth-2" placeholder="Pesquisar Material" style="width:40%; color:white;">
             <button class="btn-floating waves-effect waves-light cyan" type="button" onclick="resPesquisa()" name="action">
             <i class="material-icons">search</i>     
             </button>
+            <button class="btn-floating waves-effect waves-light cyan" type="button" onclick="pesquisa()" name="action">
+            <i class="material-icons">add</i>     
+            </button>
       </div>
-            <form action="" id="materiaisOpcoes" style="display:none; color:white;">
+            <!--<form action="" id="materiaisOpcoes" style="display:none; color:white;">
             <h5 id="arg">Argumentos da Pesquisa</h5>
                 <label for="chave">Palavras Chave:</label>
                 <input type="text" name="chave">
@@ -73,12 +76,12 @@ while($colunaNota = $resultadoNota->fetch_assoc()){$colunaNotas[] = $colunaNota;
                 <label for="dataFim">Data Postagem Fim:</label>
                 <input type="text" name="dataFim">
                 <br>
-            </form>
+            </form>-->
           </div>
           </div>
           <hr>
-          <div id="resMateriais" style="color:white; text-align:center;">
-          <h5 id="arg">Resultados da Pesquisa</h5>
+          <div id="resMateriais" style="color:white; text-align:center; display:none;">
+          <h5 id="arg">Lista de Materiais</h5>
           <table>
             <thead>
             <tr>
@@ -87,14 +90,14 @@ while($colunaNota = $resultadoNota->fetch_assoc()){$colunaNotas[] = $colunaNota;
               <th style="color:white;">Data de Envio</th>
             </tr>
             </thead>
-            <tbody>
-            <?php foreach($colunaMat as $materiais) { ?>
+            <tbody id="campoBusca">
+            <?php foreach($colunaMat as $materiais) { if($materiais['curso'] == $pastaCurso[0]){?>
           <tr style="color:white;">
             <td style="color:white;"><?php echo utf8_encode($materiais['arquivo']) ?></td>
-            <td style="color:white;"><button onclick="loadMaterial('1')" id="getMaterial" class="btn modal-trigger">Visualizar/Baixar</button></td>
+            <td style="color:white;"><button onclick="loadMaterial('<?php echo $materiais['id'] ?>')" id="getMaterial" class="btn modal-trigger">Visualizar/Baixar</button></td>
             <td style="color:white;"><?php echo $materiais['dataUpload'] ?></td>
           </tr>
-            <?php } ?>
+            <?php }} ?>
             </tbody>
           </table>
           </div>

@@ -4,8 +4,8 @@
             <span>Copyright ©
               <script type="text/javascript">
                 document.write(new Date().getFullYear());
-              </script> <a class="grey-text text-lighten-2" href="http://themeforest.net/user/pixinvent/portfolio?ref=pixinvent" target="_blank">PIXINVENT</a> All rights reserved.</span>
-            <span class="right hide-on-small-only"> Design and Developed by <a class="grey-text text-lighten-2" href="https://pixinvent.com/">PIXINVENT</a></span>
+              </script> <a class="grey-text text-lighten-2" href="http://themeforest.net/user/pixinvent/portfolio?ref=pixinvent" target="_blank">Portal EAD</a> Todos os direitos reservados.</span>
+            <span class="right hide-on-small-only"> Desenvolvido por <a class="grey-text text-lighten-2" href="https://unipam.edu.br">UNIPAM</a></span>
           </div>
         </div>
     </footer>
@@ -15,8 +15,8 @@
     ================================================ -->
     <!-- jQuery Library -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <!--materialize js-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!--materialize js - quebra se for atualizado-->
+    <script src="js/materialize.min.js"></script>
     <!--scrollbar-->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.4.0/perfect-scrollbar.min.js"></script>
     <!--plugins.js - Some Specific JS codes for Plugin Settings-->
@@ -26,7 +26,72 @@
     <script>
       $(document).ready(function(){
           $('#modal').modal();
+
+        /* Carrega a pesquisa */
+        $(document).ready(function () {
+  $("#busca").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#campoBusca tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  }); 
+});
         });
     </script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script>
+Highcharts.chart('container', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Gráfico de Notas'
+    },
+    subtitle: {
+      <?php foreach($colunaNotas as $colNota){ $dist+=$colNota['valor'];} ?>
+        text: 'Pontos distribuídos: <?php echo $dist ?>'
+    },
+    xAxis: {
+        type: 'category',
+        labels: {
+            style: {
+                fontSize: '13px',
+                fontFamily: 'Verdana, sans-serif'
+            }
+        }
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Pontos'
+        }
+    },
+    legend: {
+        enabled: true
+    },
+    tooltip: {
+        pointFormat: 'Pontos obtidos: {point.y:.1f}'
+    },
+    series: [{
+        name: 'Pontos Obtidos',
+        data: [
+          <?php foreach($colunaNotas as $colNota){ ?>
+            ['<?php echo utf8_encode($colNota['Atividade']) ?>', <?php echo $colNota['nota'] ?>],
+          <?php } ?>
+        ],
+        dataLabels: {
+            enabled: true,
+            color: '#FFFFFF',
+            align: 'right',
+            format: '{point.y:.1f}', // one decimal
+            style: {
+                fontSize: '13px',
+                fontFamily: 'Verdana, sans-serif'
+            }
+        }
+    }]
+});</script>
   </body>
 </html>

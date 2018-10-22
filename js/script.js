@@ -1,9 +1,9 @@
 function pesquisa(){
-    var divMateriais = document.getElementById("materiaisOpcoes");
-    if (divMateriais.style.display === "none") {
-        divMateriais.style.display = "block";
+    var resMateriais = document.getElementById("resMateriais");
+    if (resMateriais.style.display === "none") {
+        resMateriais.style.display = "block";
     } else {
-        divMateriais.style.display = "none";
+        resMateriais.style.display = "none";
     }
 }
 

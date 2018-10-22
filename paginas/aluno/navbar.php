@@ -1,4 +1,11 @@
-  <body>
+<?php
+  $con=mysqli_connect("localhost","root","","bancoead");
+  $sql = "SELECT * FROM atividades";
+  $resultado = mysqli_query($con,$sql);
+  $notif = 0;
+  while($colAt = $resultado->fetch_assoc()){ $colNotificacoes[] = $colAt; $notif++; }
+  ?>
+<body style="background:darkslategray;">
     <!-- Start Page Loading -->
     <div id="loader-wrapper">
       <div id="loader"></div>
@@ -32,7 +39,7 @@
               <li>
                 <a href="javascript:void(0);" class="waves-effect waves-block waves-light notification-button" data-activates="notifications-dropdown">
                   <i class="material-icons">notifications_none
-                    <small class="notification-badge pink accent-2">3</small>
+                    <small class="notification-badge pink accent-2"><?php echo $notif ?></small>
                   </i>
                 </a>
               </li>
@@ -74,25 +81,16 @@
             <ul id="notifications-dropdown" class="dropdown-content">
               <li>
                 <h6>NOTIFICAÇÕES
-                  <span class="new badge">3</span>
+                  <span class="new badge"><?php echo $notif ?></span>
                 </h6>
               </li>
               <li class="divider"></li>
+              <?php foreach($colNotificacoes as $colNotif){ ?>
               <li>
                 <a href="#!" class="grey-text text-darken-2">
-                  <span class="material-icons icon-bg-circle cyan small">assignment_turned_in</span> Atividade Postada: Algoritmos II - Struct</a>
-                <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">agora</time>
+                  <span class="material-icons icon-bg-circle cyan small">assignment_turned_in</span> Atividade Postada: <?php echo utf8_encode($colNotif['Atividade'])?></a>
               </li>
-               <li>
-                <a href="#!" class="grey-text text-darken-2">
-                  <span class="material-icons icon-bg-circle cyan small">assignment_turned_in</span> Atividade Postada: Algoritmos II - Arquivo</a>
-                <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">2 horas atrás</time>
-              </li>
-               <li>
-                <a href="#!" class="grey-text text-darken-2">
-                  <span class="material-icons icon-bg-circle cyan small">assignment_turned_in</span> Atividade Postada: Algoritmos II - Código Morse</a>
-                <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">3 dias atrás</time>
-              </li>
+              <?php } ?>
             </ul>
             <!-- profile-dropdown -->
             <ul id="profile-dropdown" class="dropdown-content">
