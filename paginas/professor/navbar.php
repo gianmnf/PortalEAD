@@ -20,7 +20,7 @@
               <li>
                 <h1 class="logo-wrapper">
                   <a href="index.html" class="brand-logo darken-1">
-                    <img src="images/logo/materialize-logo.png" alt="materialize logo">
+                    <img src="images/logo/logo.png" alt="materialize logo">
                     <span class="logo-text hide-on-med-and-down">Portal EAD</span>
                   </a>
                 </h1>
@@ -35,7 +35,7 @@
               <li>
                 <a href="javascript:void(0);" class="waves-effect waves-block waves-light notification-button" data-activates="notifications-dropdown">
                   <i class="material-icons">notifications_none
-                    <!--<small class="notification-badge pink accent-2"></small>--->
+                    <small class="notification-badge pink accent-2">0</small>
                   </i>
                 </a>
               </li>
@@ -49,8 +49,8 @@
                 </a>
               </li>
               <li>
-                <a href="#" data-activates="chat-out" class="waves-effect waves-block waves-light chat-collapse">
-                  <i class="material-icons">format_indent_increase</i>
+                <a href="#" tooltip="Chat" data-activates="chat-out" class="waves-effect waves-block waves-light chat-collapse">
+                  <i class="material-icons">chat</i>
                 </a>
               </li>
             </ul>
@@ -77,7 +77,7 @@
             <ul id="notifications-dropdown" class="dropdown-content">
               <li>
                 <h6>NOTIFICAÇÕES
-                  <span class="new badge">3</span>
+                  <span class="new badge">0</span>
                 </h6>
               </li>
               <li class="divider"></li>

@@ -24,7 +24,7 @@
               <li>
                 <h1 class="logo-wrapper">
                   <a href="index.html" class="brand-logo darken-1">
-                    <img src="images/logo/materialize-logo.png" alt="materialize logo">
+                    <img src="images/logo/logo.png" alt="materialize logo">
                     <span class="logo-text hide-on-med-and-down">Portal EAD</span>
                   </a>
                 </h1>
@@ -53,8 +53,8 @@
                 </a>
               </li>
               <li>
-                <a href="#" data-activates="chat-out" class="waves-effect waves-block waves-light chat-collapse">
-                  <i class="material-icons">format_indent_increase</i>
+                <a href="#" data-activates="chat-out" tooltip="Chat" class="waves-effect waves-block waves-light chat-collapse">
+                  <i class="material-icons">chat</i>
                 </a>
               </li>
             </ul>
