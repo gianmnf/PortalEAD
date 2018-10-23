@@ -24,7 +24,7 @@ $dist=0;
             <form action="paginas/aluno/enviaResposta.php" method="POST">
             <?php foreach($colunaAtiv as $coluna){ ?>
             <h4 id="pergunta" style="color:white;"><?php echo utf8_encode($coluna["Atividade"]) ?></h4>
-            <textarea id="resposta" name="resposta[<?php $coluna["id_atividade"] ?>] cols="10" rows="10"></textarea>
+            <textarea id="resposta" name="resposta[<?php $coluna["id_atividade"] ?>]" cols="10" rows="10"></textarea>
             <?php } ?>
             <br>
             <input class="btn waves-effect waves-light gradient-45deg-light-blue-indigo" type="submit" name="action">

@@ -2,6 +2,7 @@
 $con=mysqli_connect("localhost","root","","bancoead");
 $sql = "SELECT * FROM atividades";
 $resultado = mysqli_query($con,$sql);
+while($coluna = $resultado->fetch_assoc()){ $colunaResp[] = $coluna; }
 ?>
 <section id="content" style="background:transparent !important;">
           <!--start container-->
@@ -32,12 +33,12 @@ $resultado = mysqli_query($con,$sql);
           </tr>
         </thead>
         <tbody>
-          <?php while($coluna = $resultado->fetch_assoc()){ ?>
+          <?php foreach($colunaResp as $colResp) { ?>
           <tr>
-            <td style="color:white;"><?php echo utf8_encode($coluna["Atividade"]) ?></td>
-            <td style="color:white;"><?php echo utf8_encode($coluna["valor"]) ?></td>
-            <td style="color:white;"><?php echo utf8_encode($coluna["resposta"]) ?></td>
-            <td style="color:white;"><input style="color:white;" type="number" name="nota[<?php $coluna["id_atividade"] ?>]" id="nota" placeholder="Insira o valor obtido"></td>
+            <td style="color:white;"><?php echo utf8_encode($colResp["Atividade"]) ?></td>
+            <td style="color:white;"><?php echo utf8_encode($colResp["valor"]) ?></td>
+            <td style="color:white;"><?php echo utf8_encode($colResp["resposta"]) ?></td>
+            <td style="color:white;"><input style="color:white;" type="number" name="nota[<?php $colResp["id_atividade"] ?>]" id="nota" placeholder="Insira o valor obtido"></td>
           </tr>
           <?php } ?>
         </tbody>
