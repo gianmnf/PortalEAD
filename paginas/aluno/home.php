@@ -110,5 +110,17 @@ $dist=0;
               <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
             </div>
           </div>
+          <div id="modalLogoff" class="modal">
+            <div class="modal-content">
+              <h4>Fazer Logoff</h4>
+              <div id="modalContent">
+                <span>Você deseja realmente sair?</span>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a href="paginas/logoff.php" class="modal-close waves-effect waves-green btn-flat">Sim</a>
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Não</a>
+            </div>
+          </div>
           <!--end container-->
         </section>

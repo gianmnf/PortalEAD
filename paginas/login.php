@@ -9,11 +9,15 @@
   -moz-background-size: cover !important;
   -o-background-size: cover !important;
   background-size: cover !important;">
-<div class="valign-wrapper row login-box">
-  <div class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4">
-    <form action="loginUser.php" method="post" id="login-box">
+<div class="valign-wrapper row login-box" >
+  <div class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4" style="border: 2px solid rgba(255,255,255,.5)!important;
+    border-radius: 5px !important; ">
+    <form action="loginUser.php" method="post" id="login-box" >
       <div class="card-content">
-        <span class="card-title">Bem-Vindo ao Portal EAD</span>
+      	<img src="../images/logo/logo.png" width="96px" height="96px" style="display:block; margin:auto;">
+        <br>
+        <span class="card-title" style="text-align:center;">Bem-Vindo ao Portal EAD</span>
+        <br>
         <div class="row">
           <div class="input-field col s12">
             <label for="text">Nome de Usuário</label>
@@ -26,7 +30,7 @@
         </div>
       </div>
       <div class="card-action right-align">
-        <input type="submit" class="btn green waves-effect waves-light" value="Entrar">
+        <input type="submit" class="btn green waves-effect waves-light" value="Entrar" style="display:block; margin:auto;">
       </div>
     </form>
   </div>

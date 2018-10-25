@@ -26,6 +26,7 @@
     <script>
       $(document).ready(function(){
           $('#modal').modal();
+          $('#modalLogoff').modal();
 
         /* Carrega a pesquisa */
         $(document).ready(function () {

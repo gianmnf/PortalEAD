@@ -14,9 +14,7 @@
     }
     $insere = "INSERT INTO materiais(arquivo, curso, dataUpload) VALUES ('$arquivo','$curso','$dataUpload')";
     $res = mysqli_query($link, $insere);
-    if($res){
-    header("Refresh:0; url=../../index");
-    }else{
+    if(!$res){
         mysqli_error($res);
     }
 ?>

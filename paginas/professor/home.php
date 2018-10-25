@@ -7,12 +7,9 @@ while($coluna = $resultado->fetch_assoc()){ $colunaResp[] = $coluna; }
 <section id="content" style="background:transparent !important;">
           <!--start container-->
           <div class="container" style=" ">
-          <div id="home" style="display:block; margin:auto; height:100%;">
-            <h2 style="text-align:center; color:white">Portal do Professor</h2><br><br><br>
-          </div>
-          <div id="ativ" style="display:block; margin:auto; height:100%;">
-            <h2 style="text-align:center; color:white">Enviar Atividade</h2>
-            <form action="paginas/professor/cadastraAtividade.php" method="post">
+          <div id="ativ" style="display:none; margin:auto; height:100%;">
+            <h4 style="text-align:center; color:white">Enviar Atividade</h4>
+            <form action="paginas/professor/cadastraAtividade.php" method="post" id="FormAtividade">
             <label>Insira a pergunta</label>
             <input type="text" id="Atividade" name="Atividade">
             <label>Digite o valor desta Atividade</label>
@@ -20,9 +17,9 @@ while($coluna = $resultado->fetch_assoc()){ $colunaResp[] = $coluna; }
             <input class="btn waves-effect waves-light gradient-45deg-light-blue-indigo" type="submit" value="Enviar">
             </form>
           </div>
-          <div id="notas" style="display:block; margin:auto; height:100%;">
-            <h2 style="text-align:center; color:white">Lançar Notas</h2>
-            <form action="paginas/professor/cadastraNota.php" method="post">
+          <div id="notas" style="display:none; margin:auto; height:100%;">
+            <h4 style="text-align:center; color:white">Lançar Notas</h4>
+            <form action="paginas/professor/cadastraNota.php" method="post" id="FormNota">
             <table class="centered responsive-table">
         <thead>
           <tr>
@@ -46,8 +43,8 @@ while($coluna = $resultado->fetch_assoc()){ $colunaResp[] = $coluna; }
       <input class="btn waves-effect waves-light gradient-45deg-light-blue-indigo" type="submit" name="action">
       </form>
           </div>
-          <div id="materiais" style="display:block; margin:auto; height:100%;">
-            <h2 style="text-align:center; color:white">Enviar Materiais</h2>
+          <div id="materiais" style="display:none; margin:auto; height:100%;">
+            <h4 style="text-align:center; color:white">Enviar Materiais</h4>
             <div id="search" style="display:block; text-align:center; margin:auto;">
             <form action="paginas/professor/enviaMaterial.php" method="post" enctype="multipart/form-data" id="FormMaterial">
             <label for="arquivo">Escolha o arquivo</label>
@@ -60,8 +57,19 @@ while($coluna = $resultado->fetch_assoc()){ $colunaResp[] = $coluna; }
             </form>
 		      	<div class="alert alert-success" role="alert" id="divAlert" style="display: none; margin:auto; text-align: center; width:300px !important;"></div>
       </div>
-          </div>
-          </div>
+    </div>
+  </div>
+   <div id="modalLogoff" class="modal">
+            <div class="modal-content">
+              <h4>Fazer Logoff</h4>
+              <div id="modalContent">
+                <span>Você deseja realmente sair?</span>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a href="paginas/logoff.php" class="modal-close waves-effect waves-green btn-flat">Sim</a>
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Não</a>
+            </div>
           </div>
           <!--end container-->
         </section>

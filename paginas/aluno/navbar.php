@@ -18,22 +18,22 @@
     <header id="header" class="page-topbar">
       <!-- start header nav-->
       <div class="navbar-fixed">
-        <nav class="navbar-color gradient-45deg-light-blue-cyan">
+        <nav class="navbar-color gradient-45deg-cyan lighten-1">
           <div class="nav-wrapper">
             <ul class="left">
               <li>
                 <h1 class="logo-wrapper">
-                  <a href="index.html" class="brand-logo darken-1">
+                  <a href="#" class="brand-logo darken-1">
                     <img src="images/logo/logo.png" alt="materialize logo">
-                    <span class="logo-text hide-on-med-and-down">Portal EAD</span>
+                    <span class="logo-text hide-on-med-and-down">Portal EAD - Aluno</span>
                   </a>
                 </h1>
               </li>
             </ul>
             <ul class="right hide-on-med-and-down">
               <li>
-                <a href="javascript:void(0);" class="waves-effect waves-block waves-light toggle-fullscreen">
-                  <i class="material-icons">settings_overscan</i>
+                <a href="javascript:void(0);" class="waves-effect waves-block waves-light" style="color:white;">
+                  <i class="material-icons">wb_sunny</i>
                 </a>
               </li>
               <li>
@@ -56,25 +56,6 @@
                 <a href="#" data-activates="chat-out" tooltip="Chat" class="waves-effect waves-block waves-light chat-collapse">
                   <i class="material-icons">chat</i>
                 </a>
-              </li>
-            </ul>
-            <!-- translation-button -->
-            <ul id="translation-dropdown" class="dropdown-content">
-              <li>
-                <a href="#!" class="grey-text text-darken-1">
-                  <i class="flag-icon flag-icon-gb"></i> English</a>
-              </li>
-              <li>
-                <a href="#!" class="grey-text text-darken-1">
-                  <i class="flag-icon flag-icon-fr"></i> French</a>
-              </li>
-              <li>
-                <a href="#!" class="grey-text text-darken-1">
-                  <i class="flag-icon flag-icon-cn"></i> Chinese</a>
-              </li>
-              <li>
-                <a href="#!" class="grey-text text-darken-1">
-                  <i class="flag-icon flag-icon-de"></i> German</a>
               </li>
             </ul>
             <!-- notifications-dropdown -->

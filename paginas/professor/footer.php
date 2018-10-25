@@ -14,6 +14,7 @@
     Scripts
     ================================================ -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha384-FzT3vTVGXqf7wRfy8k4BiyzvbNfeYjK+frTVqZeNDFl8woCbF0CYG6g2fMEFFo/i" crossorigin="anonymous"></script>
     <!--materialize js-->
     <script src="js/materialize.min.js"></script>
     <!--scrollbar-->
@@ -24,11 +25,19 @@
     <script type="text/javascript" src="js/script.js"></script>
     <!-- Envia form silenciosamente usando AJAX e Jquery -->
 		<script>
+       $(document).ready(function(){
+    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+    $('#modalLogoff').modal();
+  });
 		$(function() {
        $('#FormMaterial').ajaxForm(function() {
-       		var alertOK = document.querySelector('#divAlert');
-       		alertOK.style.display = "block";
-       		alertOK.innerHTML = 'E-mail enviado com sucesso!';
+       		Materialize.toast('Material enviado com sucesso!', 4000);
+       });
+       $('#FormNota').ajaxForm(function() {
+          Materialize.toast('Nota(s) inserida(s) com sucesso!', 4000);
+       });
+       $('#FormAtividade').ajaxForm(function() {
+          Materialize.toast('Atividade inserida com sucesso!', 4000);
        });
      });
 	</script>

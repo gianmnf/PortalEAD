@@ -2,7 +2,7 @@
 session_start();
 unset($_SESSION['usuario']);
 unset($_SESSION['email']);
-header("Refresh:5; url=login.php");
+header("Refresh:3; url=login.php");
 ?>
 
 <html>
@@ -37,7 +37,8 @@ header("Refresh:5; url=login.php");
   -o-background-size: cover !important;
   background-size: cover !important;">
 <div class="valign-wrapper row login-box">
-  <div class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4">
+  <div class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4" style="border: 2px solid rgba(255,255,255,.5)!important;
+    border-radius: 5px !important; ">
       <div class="card-content">
         <img src="../images/logo/logo.png" width="96px" height="96px" style="display:block; margin:auto;">
         <br>
