@@ -1,4 +1,4 @@
-  <body style="background:url('images/prof.jpg') no-repeat center center fixed !important; -webkit-background-size: cover !important;
+  <body id="bodyX" style="background:url('images/gallary/bkg.jpeg') no-repeat center center fixed !important; -webkit-background-size: cover !important;
   -moz-background-size: cover !important;
   -o-background-size: cover !important;
   background-size: cover !important;">
@@ -14,22 +14,22 @@
     <header id="header" class="page-topbar">
       <!-- start header nav-->
       <div class="navbar-fixed">
-        <nav class="navbar-color" style="background:#80d8ff !important;">
+        <nav class="navbar-color" id="navColor" style="background:#80d8ff !important;">
           <div class="nav-wrapper">
             <ul class="left">
               <li>
                 <h1 class="logo-wrapper">
                   <a href="#" class="brand-logo darken-1">
                     <img src="images/logo/logo.png" alt="materialize logo">
-                    <span class="logo-text hide-on-med-and-down">Portal EAD - Professor</span>
+                    <span id="logo" class="logo-text hide-on-med-and-down">Portal EAD - Professor</span>
                   </a>
                 </h1>
               </li>
             </ul>
             <ul class="right hide-on-med-and-down">
               <li>
-                <a href="javascript:void(0);" class="waves-effect waves-block waves-light toggle-fullscreen">
-                  <i class="material-icons">wb_sunny</i>
+                <a id="toggleDN" onclick="diaNoite()" class="waves-effect waves-block waves-light">
+                  <i class="material-icons" id="icoDN">wb_sunny</i>
                 </a>
               </li>
               <li>
@@ -45,7 +45,7 @@
                     <img src="images/avatar/avatar-10.png" alt="avatar">
                     <i></i>
                   </span>
-                  <span><?= $_SESSION['usuario'] ?></span>
+                  <span id="userName"><?= $_SESSION['usuario'] ?></span>
                 </a>
               </li>
               <li>

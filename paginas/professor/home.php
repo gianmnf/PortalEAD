@@ -7,6 +7,12 @@ while($coluna = $resultado->fetch_assoc()){ $colunaResp[] = $coluna; }
 <section id="content" style="background:transparent !important;">
           <!--start container-->
           <div class="container" style=" ">
+          <div id="home">
+            <br>
+            <h5 style="display:block; margin:auto; text-align:center;">Seja Bem-Vindo(a) ao Portal EAD, <strong><?= $_SESSION['usuario'] ?></strong></h5>
+            <br>
+            <h5 style="display:block; margin:auto; text-align:center;">Para navegar no portal,clique nos botões na lateral da página.</h5>
+          </div>
           <div id="ativ" style="display:none; margin:auto; height:100%;">
             <h4 style="text-align:center; color:white">Enviar Atividade</h4>
             <form action="paginas/professor/cadastraAtividade.php" method="post" id="FormAtividade">

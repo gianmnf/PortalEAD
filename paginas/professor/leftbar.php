@@ -15,7 +15,7 @@
             <li class="no-padding">
               <ul class="collapsible" data-collapsible="accordion">
                 <li class="bold">
-                  <a href="#home" class="waves-effect waves-cyan">
+                  <a href="#home" class="waves-effect waves-cyan" onclick="mostraDiv('home')">
                       <i class="material-icons">home</i>
                       <span class="nav-text">Home</span>
                     </a>

@@ -40,6 +40,6 @@
           Materialize.toast('Atividade inserida com sucesso!', 4000);
        });
      });
-	</script>
+  </script>
   </body>
 </html>
