@@ -39,7 +39,7 @@
                     </a>
                 </li>
                 <li class="bold">
-                  <a href="https://portalead.moodlecloud.com/login/index.php" target="_blank" class="waves-effect waves-cyan">
+                  <a href="http://35.188.20.147/" target="_blank" class="waves-effect waves-cyan">
                       <i class="material-icons">group</i>
                       <span class="nav-text">Fórum</span>
                     </a>
