@@ -15,25 +15,25 @@
             <li class="no-padding">
               <ul class="collapsible" data-collapsible="accordion">
                 <li class="bold">
-                  <a href="#home" class="waves-effect waves-cyan">
+                  <a onclick="mostraDiv('home')" class="waves-effect waves-cyan">
                       <i class="material-icons">home</i>
                       <span class="nav-text">Home</span>
                     </a>
                 </li>
                 <li class="bold">
-                  <a class="waves-effect waves-cyan" onclick="mostraDiv(ativ)">
+                  <a class="waves-effect waves-cyan" onclick="mostraDiv('ativ')">
                       <i class="material-icons">edit</i>
                       <span class="nav-text">Atividades</span>
                     </a>
                 </li>
                 <li class="bold">
-                  <a href="#notas" class="waves-effect waves-cyan">
+                  <a onclick="mostraDiv('notas')" class="waves-effect waves-cyan">
                       <i class="material-icons">grade</i>
                       <span class="nav-text">Notas</span>
                     </a>
                 </li>
                 <li class="bold">
-                  <a href="#materiais" class="waves-effect waves-cyan">
+                  <a onclick="mostraDiv('materiais')" class="waves-effect waves-cyan">
                       <i class="material-icons">archive</i>
                       <span class="nav-text">Materiais</span>
                     </a>
@@ -45,7 +45,7 @@
                     </a>
                 </li>
                 <li class="bold">
-                  <a href="#modalLogoff" class="waves-effect waves-cyan btn modal-trigger">
+                  <a href="#modalLogoff" class="waves-effect waves-cyan btn-small modal-trigger">
                       <i class="material-icons">exit_to_app</i>
                       <span class="nav-text">Sair</span>
                     </a>

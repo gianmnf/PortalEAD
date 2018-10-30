@@ -15,10 +15,13 @@ $dist=0;
 <section id="content">
           <!--start container-->
           <div class="container" style=" ">
-          <div id="home" style="display:block; margin:auto; height:100%;">
-            <h2 style="text-align:center; color:white">Sistemas de Informação</h2><br><br><br>
+          <div id="home">
+            <br>
+            <h4 style="display:block; margin:auto; text-align:center;">Seja Bem-Vindo(a) ao Portal EAD, <strong><?= $_SESSION['usuario'] ?></strong></h4>
+            <br>
+            <h4 style="display:block; margin:auto; text-align:center;">Para navegar no portal,clique nos botões na lateral da página.</h4>
           </div>
-          <div id="ativ" style="display:block; margin:auto; height:100%;">
+          <div id="ativ" style="display:none; margin:auto; height:100%;">
             <h2 style="text-align:center; color:white">Atividades</h2>
             <input type="text" style="display:none;" name="cursoGet" id="curso" value="<?php echo $_SESSION['curso'] ?>"></input>
             <form action="paginas/aluno/enviaResposta.php" method="POST">
@@ -30,7 +33,7 @@ $dist=0;
             <input class="btn waves-effect waves-light gradient-45deg-light-blue-indigo" type="submit" name="action">
             </form>
           </div>
-          <div id="notas" style="display:block; margin:auto; height:100%;">
+          <div id="notas" style="display:none; margin:auto; height:100%;">
             <h2 style="text-align:center; color:white">Notas</h2>
             <table class="centered responsive-table">
         <thead>
@@ -52,7 +55,7 @@ $dist=0;
       </table>
       <div id="container" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
           </div>
-          <div id="materiais" style="display:block; margin:auto; height:100%;">
+          <div id="materiais" style="display:none; margin:auto; height:100%;">
             <h2 style="text-align:center; color:white">Materiais</h2>
             <div id="search" style="display:block; text-align:center; margin:auto;">
             <input type="text" name="Search" id="busca" class="header-search-input z-depth-2" placeholder="Pesquisar Material" style="width:40%; color:white;">
@@ -64,7 +67,7 @@ $dist=0;
             </button>
       </div>
             <!--<form action="" id="materiaisOpcoes" style="display:none; color:white;">
-            <h5 id="arg">Argumentos da Pesquisa</h5>
+            <h4 id="arg">Argumentos da Pesquisa</h4>
                 <label for="chave">Palavras Chave:</label>
                 <input type="text" name="chave">
                 <label for="resp">Nome Responsável:</label>
@@ -79,9 +82,9 @@ $dist=0;
             </form>-->
           </div>
           </div>
-          <hr>
+          <br>
           <div id="resMateriais" style="color:white; text-align:center; display:none;">
-          <h5 id="arg">Lista de Materiais</h5>
+          <h4 id="arg">Lista de Materiais</h4>
           <table>
             <thead>
             <tr>

@@ -24,4 +24,9 @@
     <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.4.0/css/perfect-scrollbar.min.css" type="text/css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css" type="text/css" rel="stylesheet">
+  <style>
+  #ativ,#notas,#materiais,#resmateriais > h1,h2,h3,h4,h5,h6,input,span,p,label,th,td{
+  color:black !important;
+}
+  </style>
   </head>

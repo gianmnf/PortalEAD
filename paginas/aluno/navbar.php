@@ -5,7 +5,10 @@
   $notif = 0;
   while($colAt = $resultado->fetch_assoc()){ $colNotificacoes[] = $colAt; $notif++; }
   ?>
-<body style="background:darkslategray;">
+  <body id="bodyX" style="background:url('images/gallary/bkg.jpeg') no-repeat center center fixed !important; -webkit-background-size: cover !important;
+  -moz-background-size: cover !important;
+  -o-background-size: cover !important;
+  background-size: cover !important;">
     <!-- Start Page Loading -->
     <div id="loader-wrapper">
       <div id="loader"></div>

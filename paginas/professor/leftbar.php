@@ -45,7 +45,7 @@
                     </a>
                 </li>
                  <li class="bold">
-                  <a href="#modalLogoff" class="waves-effect waves-cyan btn modal-trigger">
+                  <a href="#modalLogoff" class="waves-effect waves-cyan btn-small modal-trigger">
                       <i class="material-icons">exit_to_app</i>
                       <span class="nav-text">Sair</span>
                     </a>
