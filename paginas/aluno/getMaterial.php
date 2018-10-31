@@ -8,7 +8,7 @@
     while($colunaMateriais = $res->fetch_assoc()){$colunaMat[] = $colunaMateriais;}
     foreach($colunaMat as $materiais) {
 ?>
-<object class="browser-default" width="100%" height="300px" data="materiais/<?php echo $materiais['curso'] ?>/<?php echo $materiais['arquivo']?>"></object>
+<object class="browser-default" style="width:100%; height:300px; margin: auto;" data="materiais/<?php echo $materiais['curso'] ?>/<?php echo $materiais['arquivo']?>"></object>
 <?php
     }
 ?>

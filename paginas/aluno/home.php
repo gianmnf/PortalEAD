@@ -17,16 +17,16 @@ $dist=0;
           <div class="container" style=" ">
           <div id="home">
             <br>
-            <h4 style="display:block; margin:auto; text-align:center;">Seja Bem-Vindo(a) ao Portal EAD, <strong><?= $_SESSION['usuario'] ?></strong></h4>
+            <h5 style="display:block; margin:auto; text-align:center; font-size: 50px;">Seja Bem-Vindo(a) ao Portal EAD, <strong><?= $_SESSION['usuario'] ?></strong></h5>
             <br>
-            <h4 style="display:block; margin:auto; text-align:center;">Para navegar no portal,clique nos botões na lateral da página.</h4>
+            <h5 style="display:block; margin:auto; text-align:center; font-size: 30px;">Para navegar no portal,clique nos botões na lateral da página.</h5>
           </div>
           <div id="ativ" style="display:none; margin:auto; height:100%;">
             <h2 style="text-align:center; color:white">Atividades</h2>
             <input type="text" style="display:none;" name="cursoGet" id="curso" value="<?php echo $_SESSION['curso'] ?>"></input>
             <form action="paginas/aluno/enviaResposta.php" method="POST">
             <?php foreach($colunaAtiv as $coluna){ ?>
-            <h4 id="pergunta" style="color:white;"><?php echo utf8_encode($coluna["Atividade"]) ?></h4>
+            <h5 id="pergunta" style="color:white;"><?php echo utf8_encode($coluna["Atividade"]) ?></h5>
             <textarea id="resposta" name="resposta[<?php $coluna["id_atividade"] ?>]" cols="10" rows="10"></textarea>
             <?php } ?>
             <br>
@@ -67,7 +67,7 @@ $dist=0;
             </button>
       </div>
             <!--<form action="" id="materiaisOpcoes" style="display:none; color:white;">
-            <h4 id="arg">Argumentos da Pesquisa</h4>
+            <h5 id="arg">Argumentos da Pesquisa</h5>
                 <label for="chave">Palavras Chave:</label>
                 <input type="text" name="chave">
                 <label for="resp">Nome Responsável:</label>
@@ -84,8 +84,8 @@ $dist=0;
           </div>
           <br>
           <div id="resMateriais" style="color:white; text-align:center; display:none;">
-          <h4 id="arg">Lista de Materiais</h4>
-          <table>
+          <h5 id="arg">Lista de Materiais</h5>
+          <table class="centered responsive-table">
             <thead>
             <tr>
               <th style="color:white;">Arquivo</th>
@@ -105,17 +105,17 @@ $dist=0;
           </table>
           </div>
           <div id="modal" class="modal">
-            <div class="modal-content">
-              <h4>Visualizando Arquivo</h4>
+            <div class="modal-content ">
+              <h5>Visualizando Arquivo</h5>
               <div id="modalContent"></div>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer ">
               <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
             </div>
           </div>
           <div id="modalLogoff" class="modal">
-            <div class="modal-content">
-              <h4>Fazer Logoff</h4>
+            <div class="modal-content" style="height:100% !important;">
+              <h5>Fazer Logoff</h5>
               <div id="modalContent">
                 <span>Você deseja realmente sair?</span>
               </div>
