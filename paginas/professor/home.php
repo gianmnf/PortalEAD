@@ -16,7 +16,7 @@ while($coluna = $resultado->fetch_assoc()){ $colunaResp[] = $coluna; }
           <div id="ativ" style="display:none; margin:auto; height:100%;">
             <h4 style="text-align:center; color:white">Enviar Atividade</h4>
             <form action="paginas/professor/cadastraAtividade.php" method="post" id="FormAtividade">
-            <select name="opcoes" id="opt" onchange="checkQuest(this)">
+            <select id="opt" name="tipo" onchange="checkQuest(this)">
             <option selected="selected" disabled="disabled">Selecione um tipo</option>
             <option value="Aberta">Aberta</option>
             <option value="Multipla">Múltipla Escolha</option>
@@ -31,15 +31,15 @@ while($coluna = $resultado->fetch_assoc()){ $colunaResp[] = $coluna; }
               var perg = document.querySelector("#perg");
               var cont = document.querySelector("#pergCont");
                 if(valor == "Aberta" || valor == "CertoErrado"){
-                  perg.innerHTML = "<label for='pergunta'>Insira a Pergunta</label><input type=text name=pergunta placeholder='Digite a pergunta'>";
+                  perg.innerHTML = "<label for='pergunta'>Insira a Pergunta</label><input name=pergunta class=materialize-textarea>";
                   cont.innerHTML = "";
               }
               else if(valor == "Multipla"){
-                  perg.innerHTML = "<label for='pergunta'>Insira a Pergunta</label><input type=text name=pergunta>";
-                  cont.innerHTML = "<label for='resp1'>Alternativa A</label><input type=text name=resp1> <label for='resp2'>Alternativa B</label><input type=text name=resp2> <label for='resp3'>Alternativa C</label><input type=text name=resp3> <label for='resp4'>Alternativa D</label><input type=text name=resp4> <label for='resp5'>Alternativa E</label><input type=text name=resp5>";
+                  perg.innerHTML = "<label for='pergunta'>Insira a Pergunta</label><input name=pergunta class=materialize-textarea>";
+                  cont.innerHTML = "<label for='alt1'>Alternativa A</label><input type=text name=alt1> <label for='alt2'>Alternativa B</label><input type=text name=alt2> <label for='alt3'>Alternativa C</label><input type=text name=alt3> <label for='alt4'>Alternativa D</label><input type=text name=alt4> <label for='alt5'>Alternativa E</label><input type=text name=alt5>";
               }
               else if(valor="Justifica"){
-                perg.innerHTML = "<label for='pergunta1'>Insira a Primeira Pergunta</label><input type=text name=pergunta1> <label for='pergunta2'>Insira a Segunda Pergunta</label><input type=text name=pergunta2>";
+                perg.innerHTML = "<label for='perg1'>Insira a Primeira Pergunta</label><input type=text name=perg1> <label for='perg2'>Insira a Segunda Pergunta</label><input type=text name=perg2>";
                 cont.innerHTML = "";
               }
             }

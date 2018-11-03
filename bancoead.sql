@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 03-Nov-2018 às 16:35
+-- Generation Time: 03-Nov-2018 às 18:17
 -- Versão do servidor: 5.7.23
 -- versão do PHP: 7.2.10
 
@@ -33,24 +33,26 @@ CREATE TABLE IF NOT EXISTS `atividades` (
   `id_atividade` int(11) NOT NULL AUTO_INCREMENT,
   `pergunta` varchar(500) COLLATE latin1_general_ci DEFAULT NULL,
   `tipoPergunta` enum('Aberta','Multipla','CertoErrado','Justifica') COLLATE latin1_general_ci NOT NULL,
-  `aberta` varchar(600) COLLATE latin1_general_ci DEFAULT NULL,
   `multipla` varchar(300) COLLATE latin1_general_ci DEFAULT NULL,
-  `certoErrado` enum('Certo','Errado') COLLATE latin1_general_ci DEFAULT NULL,
   `justificaResp` enum('As duas afirmações são verdadeiras, e a segunda justifica a primeira.','As duas afirmações são verdadeiras, e a segunda não justifica a primeira.','A primeira afirmação é verdadeira, e a segunda é falsa.','A primeira afirmação é falsa, e a segunda é verdadeira.','As duas afirmações são falsas.') COLLATE latin1_general_ci DEFAULT NULL,
   `resposta` varchar(500) COLLATE latin1_general_ci DEFAULT NULL,
-  `nota` float NOT NULL,
+  `nota` float DEFAULT NULL,
   `valor` int(11) NOT NULL,
   PRIMARY KEY (`id_atividade`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
 -- Extraindo dados da tabela `atividades`
 --
 
-INSERT INTO `atividades` (`id_atividade`, `pergunta`, `tipoPergunta`, `aberta`, `multipla`, `certoErrado`, `justificaResp`, `resposta`, `nota`, `valor`) VALUES
-(1, 'Como é feito um teste?', 'Aberta', NULL, NULL, NULL, NULL, 'Testando', 3, 4),
-(2, 'Testando atividades?', 'Aberta', NULL, NULL, NULL, NULL, 'Testes', 2, 3),
-(3, 'Como executar uma sequencia for()?', 'Aberta', NULL, NULL, NULL, NULL, 'Testar', 1, 2);
+INSERT INTO `atividades` (`id_atividade`, `pergunta`, `tipoPergunta`, `multipla`, `justificaResp`, `resposta`, `nota`, `valor`) VALUES
+(1, 'Como é feito um teste?', 'Aberta', NULL, NULL, 'Testando', 3, 4),
+(2, 'Testando atividades?', 'Aberta', NULL, NULL, 'Testes', 2, 3),
+(3, 'Como executar uma sequencia for()?', 'Aberta', NULL, NULL, 'Testar', 1, 2),
+(4, 'Defina a velocidade máxima permitida na passagem de um semáforo de uma avenida, leia a placa dos automóveis e a velocidade com que cada motorista passa pelo semáforo e que calcule a multa que este motorista deverá receber, sabendo que são pagos R$ 5,00 por cada quilômetro que o motorista ultrapassar acima da velocidade permitida, até um limite de R$ 190,00.', 'Aberta', NULL, NULL, NULL, NULL, 2),
+(5, 'Bala Chita,Cavalo', 'Justifica', NULL, NULL, NULL, NULL, 1),
+(6, 'Analise as afirmações a seguir sobre algoritmos.  I Um algoritmo é a solução específica para um problema específico. II Todo algoritmo recursivo tem um equivalente iterativo, e todo algoritmo iterativo tem um equivalente recursivo. III Um algoritmo possui uma quantidade de passos definidos, garantindo que ele possua um tempo máximo, possível de calcular, para terminar. IV Todos os dados, em um algoritmo, são armazenados em variáveis, através da operação de atribuição.  Estão corretas', 'Multipla', 'III e IV,II e III,I e IV,I e II,I e III', NULL, NULL, NULL, 1),
+(7, 'Julgue o item seguinte a respeito da construção de algoritmos, dos conceitos de variáveis e de bloco de comandos e das estruturas de controle.    Durante a execução de um programa, o conteúdo de uma variável pode mudar ao longo do tempo, no entanto ela só pode armazenar um valor por vez.', 'CertoErrado', NULL, NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
