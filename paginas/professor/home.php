@@ -64,7 +64,7 @@ while($coluna = $resultado->fetch_assoc()){ $colunaResp[] = $coluna; }
         <tbody>
           <?php foreach($colunaResp as $colResp) { ?>
           <tr>
-            <td style="color:white;"><?php echo utf8_encode($colResp["Atividade"]) ?></td>
+            <td style="color:white;"><?php echo utf8_encode($colResp["pergunta"]) ?></td>
             <td style="color:white;"><?php echo utf8_encode($colResp["valor"]) ?></td>
             <td style="color:white;"><?php echo utf8_encode($colResp["resposta"]) ?></td>
             <td style="color:white;"><input style="color:white;" type="number" name="nota[<?php $colResp["id_atividade"] ?>]" id="nota" placeholder="Insira o valor obtido"></td>

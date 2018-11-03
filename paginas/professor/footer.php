@@ -29,7 +29,7 @@
     // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
     $('#modalLogoff').modal();
   });
-		/*$(function() {
+		$(function() {
        $('#FormMaterial').ajaxForm(function() {
        		Materialize.toast('Material enviado com sucesso!', 4000);
        });
@@ -39,7 +39,7 @@
        $('#FormAtividade').ajaxForm(function() {
           Materialize.toast('Atividade inserida com sucesso!', 4000);
        });
-     });*/
+     });
   </script>
   </body>
 </html>

@@ -15,6 +15,7 @@
     ================================================ -->
     <!-- jQuery Library -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha384-FzT3vTVGXqf7wRfy8k4BiyzvbNfeYjK+frTVqZeNDFl8woCbF0CYG6g2fMEFFo/i" crossorigin="anonymous"></script>
     <!--materialize js - quebra se for atualizado-->
     <script src="js/materialize.min.js"></script>
     <!--scrollbar-->
@@ -48,7 +49,7 @@ Highcharts.chart('container', {
         type: 'column'
     },
     title: {
-        text: 'Gráfico de Notas'
+        text: 'Gráfico de Desempenho'
     },
     subtitle: {
       <?php foreach($colunaNotas as $colNota){ $dist+=$colNota['valor'];} ?>
@@ -78,8 +79,8 @@ Highcharts.chart('container', {
     series: [{
         name: 'Pontos Obtidos',
         data: [
-          <?php foreach($colunaNotas as $colNota){ ?>
-            ['<?php echo utf8_encode($colNota['Atividade']) ?>', <?php echo $colNota['nota'] ?>],
+          <?php foreach($colunaNotas as $colNota){ $string = $colNota['pergunta']; ?>
+            ['<?php echo utf8_encode(substr($string,0,40)); ?>', <?php echo $colNota['nota'] ?>],
           <?php } ?>
         ],
         dataLabels: {
@@ -94,5 +95,12 @@ Highcharts.chart('container', {
         }
     }]
 });</script>
+<script>
+$(function() {
+       $('#FormAtividade').ajaxForm(function() {
+          Materialize.toast('Atividade enviada com sucesso!', 4000);
+       });
+     });
+</script>
   </body>
 </html>

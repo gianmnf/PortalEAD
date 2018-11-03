@@ -3,7 +3,7 @@
   $sql = "SELECT * FROM atividades";
   $resultado = mysqli_query($con,$sql);
   $notif = 0;
-  while($colAt = $resultado->fetch_assoc()){ $colNotificacoes[] = $colAt; $notif++; }
+  while($colAt = $resultado->fetch_assoc()){$notif++; $colNotificacoes[] = $colAt;}
   ?>
   <body id="bodyX" style="background:url('images/gallary/bkg.jpeg') no-repeat center center fixed !important; -webkit-background-size: cover !important;
   -moz-background-size: cover !important;
@@ -72,7 +72,7 @@
               <?php foreach($colNotificacoes as $colNotif){ ?>
               <li>
                 <a href="#!" class="grey-text text-darken-2">
-                  <span class="material-icons icon-bg-circle cyan small">assignment_turned_in</span> Atividade Postada: <?php echo utf8_encode($colNotif['Atividade'])?></a>
+                  <span class="material-icons icon-bg-circle cyan small">assignment_turned_in</span> Atividade Postada: <?php echo utf8_encode(substr($colNotif['pergunta'],0,40))?></a>
               </li>
               <?php } ?>
             </ul>

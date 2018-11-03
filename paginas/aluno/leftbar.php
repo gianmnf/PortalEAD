@@ -21,6 +21,12 @@
                     </a>
                 </li>
                 <li class="bold">
+                  <a onclick="mostraDiv('materiais')" class="waves-effect waves-cyan">
+                      <i class="material-icons">archive</i>
+                      <span class="nav-text">Materiais</span>
+                    </a>
+                </li>
+                <li class="bold">
                   <a class="waves-effect waves-cyan" onclick="mostraDiv('ativ')">
                       <i class="material-icons">edit</i>
                       <span class="nav-text">Atividades</span>
@@ -31,13 +37,13 @@
                       <i class="material-icons">grade</i>
                       <span class="nav-text">Notas</span>
                     </a>
-                </li>
+                </li>  
                 <li class="bold">
-                  <a onclick="mostraDiv('materiais')" class="waves-effect waves-cyan">
-                      <i class="material-icons">archive</i>
-                      <span class="nav-text">Materiais</span>
+                  <a onclick="mostraDiv('desempenho')" class="waves-effect waves-cyan">
+                      <i class="material-icons">pie_chart</i>
+                      <span class="nav-text">Desempenho</span>
                     </a>
-                </li>
+                </li>               
                 <li class="bold">
                   <a href="http://35.188.20.147/" target="_blank" class="waves-effect waves-cyan">
                       <i class="material-icons">group</i>

@@ -7,6 +7,11 @@ $resultadoNota = mysqli_query($con,$sql);
 $resultadoMateriais = mysqli_query($con,$sqlMateriais);
 $curso = $_SESSION['curso'];
 $pastaCurso = explode(' ',trim($curso));
+$justArray = ["A" => "As duas afirmações são verdadeiras, e a segunda justifica a primeira.",  
+              "B" => "As duas afirmações são verdadeiras, e a segunda não justifica a primeira.",
+              "C" => "A primeira afirmação é verdadeira, e a segunda é falsa.",
+              "D" => "A primeira afirmação é falsa, e a segunda é verdadeira.",
+              "E" => "As duas afirmações são falsas.",];
 while($colunaAtividades = $resultado->fetch_assoc()){ $colunaAtiv[] = $colunaAtividades; }
 while($colunaMateriais = $resultadoMateriais->fetch_assoc()){ $colunaMat[] = $colunaMateriais; }
 while($colunaNota = $resultadoNota->fetch_assoc()){$colunaNotas[] = $colunaNota;}
@@ -24,12 +29,36 @@ $dist=0;
           <div id="ativ" style="display:none; margin:auto; height:100%;">
             <h2 style="text-align:center; color:white">Atividades</h2>
             <input type="text" style="display:none;" name="cursoGet" id="curso" value="<?php echo $_SESSION['curso'] ?>"></input>
-            <form action="paginas/aluno/enviaResposta.php" method="POST">
+            <form action="paginas/aluno/enviaResposta.php" method="POST" id="FormAtividade">
             <?php foreach($colunaAtiv as $coluna){ ?>
-            <h5 id="pergunta" style="color:white;"><?php echo utf8_encode($coluna["Atividade"]) ?></h5>
-            <textarea id="resposta" name="resposta[<?php $coluna["id_atividade"] ?>]" cols="10" rows="10"></textarea>
+            <?php if($coluna["tipoPergunta"] == 'Aberta'){ ?>
+            <h5 id="pergunta" style="color:white;"><?php echo utf8_encode($coluna["pergunta"]) ?></h5>
+            <textarea id="resposta" name="resposta[<?php echo $coluna["id_atividade"] ?>]" cols="10" rows="10"></textarea>
+            <?php } else if($coluna["tipoPergunta"] == 'CertoErrado'){ ?>
+              <h5 id="pergunta" style="color:white;"><?php echo utf8_encode($coluna["pergunta"]) ?></h5>
+            <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" id="qc" value="Certo"><label for="qc"> Certo</label><br>
+            <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" id="qe" value="Errado"><label for="qe"> Errado</label>
+            <?php } else if($coluna["tipoPergunta"] == 'Multipla'){ 
+            $alts = explode("|",trim($coluna['multipla']));?>
+            <h5 id="pergunta" style="color:white;"><?php echo utf8_encode($coluna["pergunta"]) ?></h5>
+            <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" value="<?php echo $alts[0] ?>" id="qAM"><label for="qAM"> <?php echo $alts[0] ?></label><br>
+            <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" value="<?php echo $alts[1] ?>" id="qBM"><label for="qBM"> <?php echo $alts[1] ?></label><br>
+            <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" value="<?php echo $alts[2] ?>" id="qCM"><label for="qCM"> <?php echo $alts[2] ?></label><br>
+            <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" value="<?php echo $alts[3] ?>" id="qDM"><label for="qDM"> <?php echo $alts[3] ?></label><br>
+            <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" value="<?php echo $alts[4] ?>" id="qEM"><label for="qEM"> <?php echo $alts[4] ?></label><br>
+            <?php } else if($coluna["tipoPergunta"] == 'Justifica'){ 
+            $perg = explode("|",trim($coluna['pergunta']));?>
+            <h5><?php echo utf8_encode($perg[0]); ?></h5>
+            <h5>Porque</h5>
+            <h5><?php echo utf8_encode($perg[1]); ?></h5>
+            <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" value="<?php echo $justArray['A'] ?>" id="qAJ"><label for="qAJ"> <?php echo $justArray['A'] ?></label><br>
+            <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" value="<?php echo $justArray['B'] ?>" id="qBJ"><label for="qBJ"> <?php echo $justArray['B'] ?></label><br>
+            <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" value="<?php echo $justArray['C'] ?>" id="qCJ"><label for="qCJ"> <?php echo $justArray['C'] ?></label><br>
+            <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" value="<?php echo $justArray['D'] ?>" id="qDJ"><label for="qDJ"> <?php echo $justArray['D'] ?></label><br>
+            <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" value="<?php echo $justArray['E'] ?>" id="qEJ"><label for="qEJ"> <?php echo $justArray['E'] ?></label><br>
             <?php } ?>
-            <br>
+            <?php } ?>
+            <br><br>
             <input class="btn waves-effect waves-light gradient-45deg-light-blue-indigo" type="submit" name="action">
             </form>
           </div>
@@ -46,14 +75,17 @@ $dist=0;
         <tbody>
         <?php foreach($colunaNotas as $colNota){ ?>
           <tr>
-            <td style="color:white;"><?php echo utf8_encode($colNota["Atividade"]) ?></td>
+            <td style="color:white;"><?php echo utf8_encode($colNota["pergunta"]) ?></td>
             <td style="color:white;"><?php echo utf8_encode($colNota["valor"]) ?></td>
             <td style="color:white;"><?php echo utf8_encode($colNota["nota"]) ?></td>
           </tr>
         <?php } ?>
         </tbody>
       </table>
-      <div id="container" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
+          </div>
+          <div id="desempenho" style="display:none; margin:auto; height:100%;">
+          <br>
+            <div id="container" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
           </div>
           <div id="materiais" style="display:none; margin:auto; height:100%;">
             <h2 style="text-align:center; color:white">Materiais</h2>

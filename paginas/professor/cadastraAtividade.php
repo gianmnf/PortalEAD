@@ -12,12 +12,12 @@
 		mysqli_error($abce);
     }
     else if($tipoPergunta == 'Multipla'){
-      $multipla = $_POST['alt1'] . ',' . $_POST['alt2'] . ',' . $_POST['alt3'] . ',' . $_POST['alt4'] . ',' . $_POST['alt5'];
+      $multipla = $_POST['alt1'] . '|' . $_POST['alt2'] . '|' . $_POST['alt3'] . '|' . $_POST['alt4'] . '|' . $_POST['alt5'];
       $mult = "INSERT into atividades(pergunta, tipoPergunta, multipla, valor) VALUES ('$pergunta','$tipoPergunta','$multipla','$valor')";
       $resmult = mysqli_query($link, $mult);
     }
     else if($tipoPergunta == 'Justifica'){
-      $justifica = $_POST['perg1'] . ',' . $_POST['perg2'];
+      $justifica = $_POST['perg1'] . '|' . $_POST['perg2'];
       $just = "INSERT into atividades(pergunta, tipoPergunta, valor) VALUES ('$justifica','$tipoPergunta','$valor')";
       $resjust = mysqli_query($link, $just);
       if(!$resjust)
