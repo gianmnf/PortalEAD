@@ -14,18 +14,10 @@ function loadMaterial(idMat){
               });
 }
 
-function mostraDiv(div){
-  var divAtual = document.getElementById(div);
-  var divHome = document.getElementById('home');
-  debugger
-  if (divAtual.style.display === "none"){
-    divAtual.style.display = "block";
-    divHome.style.display = "none";
-  }
-  else{
-    divAtual.style.display = "none";
-    divHome.style.display = "block";
-  }
+function mostraDiv(divX){
+  $('#conteudo').empty();
+  $('#conteudo').append($('#' + divX).html());
+  $("#conteudo > div").css("display","block");
 }
 
 function diaNoite(){

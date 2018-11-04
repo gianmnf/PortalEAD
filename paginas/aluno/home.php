@@ -20,7 +20,15 @@ $dist=0;
 <section id="content">
           <!--start container-->
           <div class="container" style=" ">
+          <div id="conteudo">
           <div id="home">
+            <br>
+            <h5 style="display:block; margin:auto; text-align:center; font-size: 50px;">Seja Bem-Vindo(a) ao Portal EAD, <strong><?= $_SESSION['usuario'] ?></strong></h5>
+            <br>
+            <h5 style="display:block; margin:auto; text-align:center; font-size: 30px;">Para navegar no portal,clique nos botões na lateral da página.</h5>
+          </div>
+          </div>
+          <div id="home" style="display:block; visibility:hidden;">
             <br>
             <h5 style="display:block; margin:auto; text-align:center; font-size: 50px;">Seja Bem-Vindo(a) ao Portal EAD, <strong><?= $_SESSION['usuario'] ?></strong></h5>
             <br>
