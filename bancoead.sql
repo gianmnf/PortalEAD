@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 03-Nov-2018 às 21:26
--- Versão do servidor: 5.7.23
+-- Generation Time: 05-Nov-2018 às 16:43
+-- Versão do servidor: 5.7.10-log
 -- versão do PHP: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -31,14 +31,14 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `atividades`;
 CREATE TABLE IF NOT EXISTS `atividades` (
   `id_atividade` int(11) NOT NULL AUTO_INCREMENT,
-  `pergunta` varchar(500) COLLATE latin1_general_ci DEFAULT NULL,
-  `tipoPergunta` enum('Aberta','Multipla','CertoErrado','Justifica') COLLATE latin1_general_ci DEFAULT NULL,
-  `multipla` varchar(300) COLLATE latin1_general_ci DEFAULT NULL,
-  `resposta` varchar(500) COLLATE latin1_general_ci DEFAULT NULL,
+  `pergunta` varchar(500) DEFAULT NULL,
+  `tipoPergunta` enum('Aberta','Multipla','CertoErrado','Justifica') DEFAULT NULL,
+  `multipla` varchar(300) DEFAULT NULL,
+  `resposta` varchar(500) DEFAULT NULL,
   `nota` float DEFAULT NULL,
   `valor` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_atividade`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `atividades`
@@ -62,16 +62,16 @@ INSERT INTO `atividades` (`id_atividade`, `pergunta`, `tipoPergunta`, `multipla`
 DROP TABLE IF EXISTS `dados`;
 CREATE TABLE IF NOT EXISTS `dados` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `usuario` varchar(255) COLLATE latin1_general_ci NOT NULL,
-  `nome` varchar(255) COLLATE latin1_general_ci NOT NULL,
-  `sobrenome` varchar(255) COLLATE latin1_general_ci NOT NULL,
-  `email` varchar(255) COLLATE latin1_general_ci NOT NULL,
-  `senha` varchar(32) COLLATE latin1_general_ci NOT NULL,
-  `confSenha` varchar(32) COLLATE latin1_general_ci NOT NULL,
-  `nivel` enum('Aluno','Professor') COLLATE latin1_general_ci NOT NULL,
-  `curso` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `usuario` varchar(255) NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `sobrenome` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `senha` varchar(32) NOT NULL,
+  `confSenha` varchar(32) NOT NULL,
+  `nivel` enum('Aluno','Professor') NOT NULL,
+  `curso` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `dados`
@@ -80,7 +80,8 @@ CREATE TABLE IF NOT EXISTS `dados` (
 INSERT INTO `dados` (`id`, `usuario`, `nome`, `sobrenome`, `email`, `senha`, `confSenha`, `nivel`, `curso`) VALUES
 (1, 'gianvelox', 'Gian', 'Michel', 'gianveloxsi@gmail.com', 'a8e0a09388d92d2a17633e4e5adbdc66', 'a8e0a09388d92d2a17633e4e5adbdc66', 'Aluno', 'Sistemas de Informação'),
 (2, 'sandro', 'Sandro', 'Matias', 'sandro@unipam.edu.br', '2c40837dd4b97fd00a5a598a8a25426f', '2c40837dd4b97fd00a5a598a8a25426f', 'Professor', 'Sistemas de Informação'),
-(3, 'jcarlos', 'Jose', 'Carlos', 'jcarlos_2013@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'e10adc3949ba59abbe56e057f20f883e', 'Aluno', 'Sistemas de Informação');
+(3, 'jcarlos', 'Jose', 'Carlos', 'jcarlos_2013@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'e10adc3949ba59abbe56e057f20f883e', 'Aluno', 'Sistemas de Informação'),
+(4, 'a', 'Antônio', 'Fonseca', 'a@a.com', '0cc175b9c0f1b6a831c399e269772661', '0cc175b9c0f1b6a831c399e269772661', 'Aluno', 'Sistemas de Informação');
 
 -- --------------------------------------------------------
 
@@ -91,11 +92,11 @@ INSERT INTO `dados` (`id`, `usuario`, `nome`, `sobrenome`, `email`, `senha`, `co
 DROP TABLE IF EXISTS `materiais`;
 CREATE TABLE IF NOT EXISTS `materiais` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `arquivo` varchar(500) COLLATE latin1_general_ci NOT NULL,
-  `curso` varchar(200) COLLATE latin1_general_ci DEFAULT NULL,
+  `arquivo` varchar(500) NOT NULL,
+  `curso` varchar(200) DEFAULT NULL,
   `dataUpload` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `materiais`
