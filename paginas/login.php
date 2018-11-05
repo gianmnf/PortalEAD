@@ -43,6 +43,7 @@ body{
   </div>
 </div>
 </body>
+<?php include 'footerlogin.php'; ?>
 <script>
 $('.entrar').click(function(){
           var campo_vazio = false;
