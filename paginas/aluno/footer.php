@@ -46,7 +46,8 @@
     <script>
 Highcharts.chart('container', {
     chart: {
-        type: 'column'
+        type: 'column',
+        backgroundColor: null
     },
     title: {
         text: 'Gráfico de Desempenho'
@@ -80,7 +81,7 @@ Highcharts.chart('container', {
         name: 'Pontos Obtidos',
         data: [
           <?php foreach($colunaNotas as $colNota){ $string = $colNota['pergunta']; ?>
-            ['<?php echo utf8_encode(substr($string,0,40)); ?>', <?php echo $colNota['nota'] ?>],
+            ['<?php echo substr($string,0,40); ?>', <?php echo $colNota['nota'] ?>],
           <?php } ?>
         ],
         dataLabels: {

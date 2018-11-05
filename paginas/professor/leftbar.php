@@ -21,6 +21,12 @@
                     </a>
                 </li>
                 <li class="bold">
+                  <a class="waves-effect waves-cyan" onclick="mostraDiv('materiais')">
+                      <i class="material-icons">archive</i>
+                      <span class="nav-text">Enviar Materiais</span>
+                    </a>
+                </li>
+                <li class="bold">
                   <a class="waves-effect waves-cyan" onclick="mostraDiv('ativ')">
                       <i class="material-icons">edit</i>
                       <span class="nav-text">Enviar Atividade</span>
@@ -33,13 +39,7 @@
                     </a>
                 </li>
                 <li class="bold">
-                  <a class="waves-effect waves-cyan" onclick="mostraDiv('materiais')">
-                      <i class="material-icons">archive</i>
-                      <span class="nav-text">Enviar Materiais</span>
-                    </a>
-                </li>
-                <li class="bold">
-                  <a onclick="mostraDiv('forum') target="_blank" class="waves-effect waves-cyan">
+                  <a href="paginas/forum/" target="_blank" class="waves-effect waves-cyan">
                       <i class="material-icons">group</i>
                       <span class="nav-text">Fórum</span>
                     </a>

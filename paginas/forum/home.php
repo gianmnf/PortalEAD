@@ -1,4 +1,4 @@
-<embed src="http://35.188.20.147" width=100% height=100% />
+<embed src="http://35.188.20.147/login/" width=100% height=100% />
 <div id="modalLogoff" class="modal">
             <div class="modal-content">
               <h4>Fazer Logoff</h4>

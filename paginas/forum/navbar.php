@@ -35,11 +35,6 @@
             </ul>
             <ul class="right hide-on-med-and-down">
               <li>
-                <a href="javascript:void(0);" class="waves-effect waves-block waves-light" style="color:white;">
-                  <i class="material-icons">wb_sunny</i>
-                </a>
-              </li>
-              <li>
               <a href="#modalLogoff" class="waves-effect waves-cyan btn-small modal-trigger">
                   <span>
                   <i class="material-icons">exit_to_app</i>

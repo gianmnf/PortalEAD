@@ -1,8 +1,17 @@
 <?php
 $con=mysqli_connect("localhost","root","","bancoead");
 $sql = "SELECT * FROM atividades";
+$id = $_SESSION['id_usuario'];
+$pessoa ="SELECT nome FROM dados where id=$id";
 $resultado = mysqli_query($con,$sql);
 while($coluna = $resultado->fetch_assoc()){ $colunaResp[] = $coluna; }
+if ($result=mysqli_query($con,$pessoa)){
+  while ($row=mysqli_fetch_row($result))
+  {
+      $nome = $row[0];
+  }
+  mysqli_free_result($result);
+  }
 ?>
 <section id="content" style="background:transparent !important;">
           <!--start container-->
@@ -10,21 +19,25 @@ while($coluna = $resultado->fetch_assoc()){ $colunaResp[] = $coluna; }
           <div id="conteudo">
           <div id="home">
             <br>
-            <h5 style="display:block; margin:auto; text-align:center;">Seja Bem-Vindo(a) ao Portal EAD, <strong><?= $_SESSION['usuario'] ?></strong></h5>
+            <h5 style="display:block; margin:auto; text-align:center; font-size: 2em;">Seja Bem-Vindo(a) ao Portal EAD, <strong><?php echo $nome ?></strong></h5>
             <br>
-            <h5 style="display:block; margin:auto; text-align:center;">Para navegar no portal,clique nos botões na lateral da página.</h5>
+            <h5 style="display:block; margin:auto; text-align:center; font-size: 2em;">Para navegar no portal,clique nos botões na lateral da página.</h5>
+            <br>
+            <img src="images/home.png" alt="conversa" class="responsive-img" style="display:block; margin:auto;">
           </div>
           </div>
           <div id="home" style="display:none;">
             <br>
-            <h5 style="display:block; margin:auto; text-align:center;">Seja Bem-Vindo(a) ao Portal EAD, <strong><?= $_SESSION['usuario'] ?></strong></h5>
+            <h5 style="display:block; margin:auto; text-align:center; font-size: 2em;">Seja Bem-Vindo(a) ao Portal EAD, <strong><?php echo $nome ?></strong></h5>
             <br>
-            <h5 style="display:block; margin:auto; text-align:center;">Para navegar no portal,clique nos botões na lateral da página.</h5>
+            <h5 style="display:block; margin:auto; text-align:center; font-size: 2em;">Para navegar no portal,clique nos botões na lateral da página.</h5>
+            <br>
+            <img src="images/home.png" alt="conversa" class="responsive-img" style="display:block; margin:auto;">
           </div>
           <div id="ativ" style="display:none; margin:auto; height:100%;">
             <h4 style="text-align:center; color:white">Enviar Atividade</h4>
             <form action="paginas/professor/cadastraAtividade.php" method="post" id="FormAtividade">
-            <select id="opt" name="tipo" onchange="checkQuest(this)">
+            <select id="opt" name="tipo" onchange="checkQuest(this)" class="browser-default">
             <option selected="selected" disabled="disabled">Selecione um tipo</option>
             <option value="Aberta">Aberta</option>
             <option value="Multipla">Múltipla Escolha</option>
@@ -72,9 +85,9 @@ while($coluna = $resultado->fetch_assoc()){ $colunaResp[] = $coluna; }
         <tbody>
           <?php foreach($colunaResp as $colResp) { ?>
           <tr>
-            <td style="color:white;"><?php echo utf8_encode($colResp["pergunta"]) ?></td>
-            <td style="color:white;"><?php echo utf8_encode($colResp["valor"]) ?></td>
-            <td style="color:white;"><?php echo utf8_encode($colResp["resposta"]) ?></td>
+            <td style="color:white;"><?php echo $colResp["pergunta"] ?></td>
+            <td style="color:white;"><?php echo $colResp["valor"] ?></td>
+            <td style="color:white;"><?php echo $colResp["resposta"] ?></td>
             <td style="color:white;"><input style="color:white;" type="number" name="nota[<?php $colResp["id_atividade"] ?>]" id="nota" placeholder="Insira o valor obtido"></td>
           </tr>
           <?php } ?>
@@ -99,9 +112,6 @@ while($coluna = $resultado->fetch_assoc()){ $colunaResp[] = $coluna; }
       </div>
     </div>
   </div>
-  <div id="forum" style="display:none;margin:auto;">
-          <embed src="http://35.188.20.147" width=100% height=100% />
-          </div>
    <div id="modalLogoff" class="modal">
             <div class="modal-content">
               <h4>Fazer Logoff</h4>

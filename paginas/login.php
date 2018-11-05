@@ -9,6 +9,11 @@
   -moz-background-size: cover !important;
   -o-background-size: cover !important;
   background-size: cover !important;">
+<style>
+body{
+  overflow:hidden;
+}
+</style>
 <div class="valign-wrapper row login-box" >
   <div class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4" style="border: 2px solid rgba(255,255,255,.5)!important;
     border-radius: 5px !important; ">
@@ -37,9 +42,7 @@
 </div>
   </div>
 </div>
-</body>      
-
-<?php include 'footerlogin.php' ?>
+</body>
 <script>
 $('.entrar').click(function(){
           var campo_vazio = false;

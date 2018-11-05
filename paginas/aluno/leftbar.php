@@ -1,6 +1,6 @@
 <div id="main">
       <!-- START WRAPPER -->
-      <div class="wrapper" style="position:relative">
+      <div class="wrapper">
         <!-- START LEFT SIDEBAR NAV-->
         <aside id="left-sidebar-nav">
           <ul id="slide-out" class="side-nav fixed leftside-navigation">
@@ -45,7 +45,7 @@
                     </a>
                 </li>               
                 <li class="bold">
-                  <a onclick="mostraDiv('forum')" target="_blank" class="waves-effect waves-cyan">
+                  <a href="paginas/forum/" target="_blank" class="waves-effect waves-cyan">
                       <i class="material-icons">group</i>
                       <span class="nav-text">Fórum</span>
                     </a>

@@ -28,5 +28,8 @@
   #ativ,#notas,#materiais,#resmateriais > h1,h2,h3,h4,h5,h6,input,span,p,label,th,td{
   color:black !important;
 }
+  body{
+    overflow:hidden;
+  }
   </style>
   </head>
