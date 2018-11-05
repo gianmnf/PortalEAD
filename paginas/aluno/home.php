@@ -144,6 +144,9 @@ $dist=0;
             </tbody>
           </table>
           </div>
+          <div id="forum" style="position:relative;display:none;height:100%; padding-bottom: 56.25%;overflow:hidden;max-width:100%;">
+          <embed src="http://35.188.20.147" width="100%" height="100%" />
+          </div>
           <div id="modal" class="modal">
             <div class="modal-content ">
               <h5>Visualizando Arquivo</h5>
