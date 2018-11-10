@@ -19,7 +19,7 @@ if ($result=mysqli_query($con,$pessoa)){
           <div id="conteudo">
           <div id="home">
             <br>
-            <h5 style="display:block; margin:auto; text-align:center; font-size: 2em;">Seja Bem-Vindo(a) ao Portal EAD, <strong><?php echo $nome ?></strong></h5>
+            <h5 style="display:block; margin:auto; text-align:center; font-size: 2em;">Seja Bem-Vindo(a) ao Portal EAD, <strong><?php echo utf8_encode($nome) ?></strong></h5>
             <br>
             <h5 style="display:block; margin:auto; text-align:center; font-size: 2em;">Para navegar no portal,clique nos botões na lateral da página.</h5>
             <br>
@@ -28,7 +28,7 @@ if ($result=mysqli_query($con,$pessoa)){
           </div>
           <div id="home" style="display:none;">
             <br>
-            <h5 style="display:block; margin:auto; text-align:center; font-size: 2em;">Seja Bem-Vindo(a) ao Portal EAD, <strong><?php echo $nome ?></strong></h5>
+            <h5 style="display:block; margin:auto; text-align:center; font-size: 2em;">Seja Bem-Vindo(a) ao Portal EAD, <strong><?php echo utf8_encode($nome) ?></strong></h5>
             <br>
             <h5 style="display:block; margin:auto; text-align:center; font-size: 2em;">Para navegar no portal,clique nos botões na lateral da página.</h5>
             <br>
@@ -85,15 +85,16 @@ if ($result=mysqli_query($con,$pessoa)){
         <tbody>
           <?php foreach($colunaResp as $colResp) { ?>
           <tr>
-            <td style="color:white;"><?php echo $colResp["pergunta"] ?></td>
+            <td style="color:white;"><?php echo utf8_encode($colResp["pergunta"]) ?></td>
             <td style="color:white;"><?php echo $colResp["valor"] ?></td>
-            <td style="color:white;"><?php echo $colResp["resposta"] ?></td>
+            <td style="color:white;"><?php echo utf8_encode($colResp["resposta"]) ?></td>
             <td style="color:white;"><input style="color:white;" type="number" name="nota[<?php $colResp["id_atividade"] ?>]" id="nota" placeholder="Insira o valor obtido"></td>
           </tr>
           <?php } ?>
         </tbody>
       </table>
-      <input class="btn waves-effect waves-light gradient-45deg-light-blue-indigo" type="submit" name="action">
+      <input class="btn waves-effect waves-light gradient-45deg-light-blue-indigo" style="display:block;margin:auto;" type="submit" name="action" value="Lançar">
+      <br>
       </form>
           </div>
           <div id="materiais" style="display:none; margin:auto; height:100%;">

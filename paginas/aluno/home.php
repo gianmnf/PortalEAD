@@ -32,7 +32,7 @@ $dist=0;
           <div id="conteudo">
           <div id="home">
             <br>
-            <h5 style="display:block; margin:auto; text-align:center; font-size: 2em;">Seja Bem-Vindo(a) ao Portal EAD, <strong><?php echo $nome ?></strong></h5>
+            <h5 style="display:block; margin:auto; text-align:center; font-size: 2em;">Seja Bem-Vindo(a) ao Portal EAD, <strong><?php echo utf8_encode($nome) ?></strong></h5>
             <br>
             <h5 style="display:block; margin:auto; text-align:center; font-size: 2em;">Para navegar no portal,clique nos botões na lateral da página.</h5>
             <br>
@@ -41,7 +41,7 @@ $dist=0;
           </div>
           <div id="home" style="display:none;">
             <br>
-            <h5 style="display:block; margin:auto; text-align:center; font-size: 2em;">Seja Bem-Vindo(a) ao Portal EAD, <strong><?php echo $nome ?></strong></h5>
+            <h5 style="display:block; margin:auto; text-align:center; font-size: 2em;">Seja Bem-Vindo(a) ao Portal EAD, <strong><?php echo utf8_encode($nome) ?></strong></h5>
             <br>
             <h5 style="display:block; margin:auto; text-align:center; font-size: 2em;">Para navegar no portal,clique nos botões na lateral da página.</h5>
             <br>
@@ -53,15 +53,15 @@ $dist=0;
             <form action="paginas/aluno/enviaResposta.php" method="POST" id="FormAtividade">
             <?php foreach($colunaAtiv as $coluna){ ?>
             <?php if($coluna["tipoPergunta"] == 'Aberta'){ ?>
-            <h5 id="pergunta" style="color:white;"><?php echo $coluna["pergunta"] ?></h5>
+            <h5 id="pergunta" style="color:white;"><?php echo utf8_encode($coluna["pergunta"]) ?></h5>
             <textarea id="resposta" name="resposta[<?php echo $coluna["id_atividade"] ?>]" cols="10" rows="10"></textarea>
             <?php } else if($coluna["tipoPergunta"] == 'CertoErrado'){ ?>
-              <h5 id="pergunta" style="color:white;"><?php echo $coluna["pergunta"] ?></h5>
+              <h5 id="pergunta" style="color:white;"><?php echo utf8_encode($coluna["pergunta"]) ?></h5>
             <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" id="qc" value="Certo"><label for="qc"> Certo</label><br>
             <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" id="qe" value="Errado"><label for="qe"> Errado</label>
             <?php } else if($coluna["tipoPergunta"] == 'Multipla'){ 
             $alts = explode("|",trim($coluna['multipla']));?>
-            <h5 id="pergunta" style="color:white;"><?php echo $coluna["pergunta"] ?></h5>
+            <h5 id="pergunta" style="color:white;"><?php echo utf8_encode($coluna["pergunta"]) ?></h5>
             <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" value="<?php echo $alts[0] ?>" id="qAM"><label for="qAM"> <?php echo $alts[0] ?></label><br>
             <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" value="<?php echo $alts[1] ?>" id="qBM"><label for="qBM"> <?php echo $alts[1] ?></label><br>
             <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" value="<?php echo $alts[2] ?>" id="qCM"><label for="qCM"> <?php echo $alts[2] ?></label><br>
@@ -69,9 +69,9 @@ $dist=0;
             <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" value="<?php echo $alts[4] ?>" id="qEM"><label for="qEM"> <?php echo $alts[4] ?></label><br>
             <?php } else if($coluna["tipoPergunta"] == 'Justifica'){ 
             $perg = explode("|",trim($coluna['pergunta']));?>
-            <h5><?php echo $perg[0]; ?></h5>
+            <h5><?php echo utf8_encode($perg[0]) ?></h5>
             <h5>Porque</h5>
-            <h5><?php echo $perg[1]; ?></h5>
+            <h5><?php echo utf8_encode($perg[1]) ?></h5>
             <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" value="<?php echo $justArray['A'] ?>" id="qAJ"><label for="qAJ"> <?php echo $justArray['A'] ?></label><br>
             <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" value="<?php echo $justArray['B'] ?>" id="qBJ"><label for="qBJ"> <?php echo $justArray['B'] ?></label><br>
             <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" value="<?php echo $justArray['C'] ?>" id="qCJ"><label for="qCJ"> <?php echo $justArray['C'] ?></label><br>
@@ -96,7 +96,7 @@ $dist=0;
         <tbody>
         <?php foreach($colunaNotas as $colNota){ ?>
           <tr>
-            <td style="color:white;"><?php echo $colNota["pergunta"] ?></td>
+            <td style="color:white;"><?php echo utf8_encode($colNota["pergunta"]) ?></td>
             <td style="color:white;"><?php echo $colNota["valor"] ?></td>
             <td style="color:white;"><?php echo $colNota["nota"] ?></td>
           </tr>
