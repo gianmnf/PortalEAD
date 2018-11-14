@@ -2,10 +2,10 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: 10-Nov-2018 às 13:01
--- Versão do servidor: 5.7.23
--- versão do PHP: 7.2.10
+-- Host: 127.0.0.1
+-- Generation Time: 14-Nov-2018 às 22:38
+-- Versão do servidor: 10.1.35-MariaDB
+-- versão do PHP: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -28,30 +28,30 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `atividades`
 --
 
-DROP TABLE IF EXISTS `atividades`;
-CREATE TABLE IF NOT EXISTS `atividades` (
-  `id_atividade` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `atividades` (
+  `id_atividade` int(11) NOT NULL,
   `pergunta` varchar(500) DEFAULT NULL,
   `tipoPergunta` enum('Aberta','Multipla','CertoErrado','Justifica') DEFAULT NULL,
   `multipla` varchar(300) DEFAULT NULL,
   `resposta` varchar(500) DEFAULT NULL,
   `nota` float DEFAULT NULL,
   `valor` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_atividade`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+  `correta` varchar(10) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `atividades`
 --
 
-INSERT INTO `atividades` (`id_atividade`, `pergunta`, `tipoPergunta`, `multipla`, `resposta`, `nota`, `valor`) VALUES
-(1, 'Como é feito um teste?', 'Aberta', NULL, 'dsfdssdsfsdfdsf', 3, 4),
-(2, 'Testando atividades?', 'Aberta', NULL, 'fdsfdsfdsqweqewqe', 2, 3),
-(3, 'Como executar uma sequencia for()?', 'Aberta', NULL, 'asDASDSADSADSA', 1, 2),
-(4, 'Defina a velocidade máxima permitida na passagem de um semáforo de uma avenida, leia a placa dos automóveis e a velocidade com que cada motorista passa pelo semáforo e que calcule a multa que este motorista deverá receber, sabendo que são pagos R$ 5,00 por cada quilômetro que o motorista ultrapassar acima da velocidade permitida, até um limite de R$ 190,00.', 'Aberta', NULL, 'saddsafdfgxcxcz', 2, 2),
-(5, 'Um tipo abstrato de dados está desvinculado de sua implementação, ou seja, a sua definição visa a preocupação com o que ele faz e não como ele faz. | A lista duplamente encadeada além de saber o próximo nó, cada elemento também conhece o nó anterior a ele na lista, o que facilita a remoção de um elemento e a exibição dos elementos na ordem inversa. ', 'Justifica', NULL, 'As duas afirmações são verdadeiras, e a segunda não justifica a primeira.', 1, 1),
-(6, 'Analise as afirmações a seguir sobre algoritmos.  I Um algoritmo é a solução específica para um problema específico. II Todo algoritmo recursivo tem um equivalente iterativo, e todo algoritmo iterativo tem um equivalente recursivo. III Um algoritmo possui uma quantidade de passos definidos, garantindo que ele possua um tempo máximo, possível de calcular, para terminar. IV Todos os dados, em um algoritmo, são armazenados em variáveis, através da operação de atribuição.  Estão corretas', 'Multipla', 'III e IV|II e III|I e IV|I e II|I e III', 'II e III', 1, 1),
-(7, 'Julgue o item seguinte a respeito da construção de algoritmos, dos conceitos de variáveis e de bloco de comandos e das estruturas de controle.    Durante a execução de um programa, o conteúdo de uma variável pode mudar ao longo do tempo, no entanto ela só pode armazenar um valor por vez.', 'CertoErrado', NULL, 'Errado', 1, 1);
+INSERT INTO `atividades` (`id_atividade`, `pergunta`, `tipoPergunta`, `multipla`, `resposta`, `nota`, `valor`, `correta`) VALUES
+(1, 'Como é feito um teste?', 'Aberta', NULL, 'dsfdssdsfsdfdsf', 3, 4, NULL),
+(2, 'Testando atividades?', 'Aberta', NULL, 'fdsfdsfdsqweqewqe', 2, 3, NULL),
+(3, 'Como executar uma sequencia for()?', 'Aberta', NULL, 'asDASDSADSADSA', 1, 2, NULL),
+(4, 'Defina a velocidade máxima permitida na passagem de um semáforo de uma avenida, leia a placa dos automóveis e a velocidade com que cada motorista passa pelo semáforo e que calcule a multa que este motorista deverá receber, sabendo que são pagos R$ 5,00 por cada quilômetro que o motorista ultrapassar acima da velocidade permitida, até um limite de R$ 190,00.', 'Aberta', NULL, 'saddsafdfgxcxcz', 2, 2, NULL),
+(5, 'Um tipo abstrato de dados está desvinculado de sua implementação, ou seja, a sua definição visa a preocupação com o que ele faz e não como ele faz. | A lista duplamente encadeada além de saber o próximo nó, cada elemento também conhece o nó anterior a ele na lista, o que facilita a remoção de um elemento e a exibição dos elementos na ordem inversa. ', 'Justifica', NULL, 'As duas afirmações são verdadeiras, e a segunda não justifica a primeira.', 1, 1, NULL),
+(6, 'Analise as afirmações a seguir sobre algoritmos.  I Um algoritmo é a solução específica para um problema específico. II Todo algoritmo recursivo tem um equivalente iterativo, e todo algoritmo iterativo tem um equivalente recursivo. III Um algoritmo possui uma quantidade de passos definidos, garantindo que ele possua um tempo máximo, possível de calcular, para terminar. IV Todos os dados, em um algoritmo, são armazenados em variáveis, através da operação de atribuição.  Estão corretas', 'Multipla', 'III e IV|II e III|I e IV|I e II|I e III', 'II e III', 1, 1, NULL),
+(7, 'Julgue o item seguinte a respeito da construção de algoritmos, dos conceitos de variáveis e de bloco de comandos e das estruturas de controle.    Durante a execução de um programa, o conteúdo de uma variável pode mudar ao longo do tempo, no entanto ela só pode armazenar um valor por vez.', 'CertoErrado', NULL, 'Errado', 1, 1, NULL),
+(8, 'Os códigos escritos em C só funcionam no Windows?', 'CertoErrado', NULL, NULL, NULL, 1, 'Errado');
 
 -- --------------------------------------------------------
 
@@ -59,9 +59,8 @@ INSERT INTO `atividades` (`id_atividade`, `pergunta`, `tipoPergunta`, `multipla`
 -- Estrutura da tabela `dados`
 --
 
-DROP TABLE IF EXISTS `dados`;
-CREATE TABLE IF NOT EXISTS `dados` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `dados` (
+  `id` int(11) NOT NULL,
   `usuario` varchar(255) NOT NULL,
   `nome` varchar(255) NOT NULL,
   `sobrenome` varchar(255) NOT NULL,
@@ -69,9 +68,8 @@ CREATE TABLE IF NOT EXISTS `dados` (
   `senha` varchar(32) NOT NULL,
   `confSenha` varchar(32) NOT NULL,
   `nivel` enum('Aluno','Professor') NOT NULL,
-  `curso` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+  `curso` varchar(100) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `dados`
@@ -91,14 +89,12 @@ INSERT INTO `dados` (`id`, `usuario`, `nome`, `sobrenome`, `email`, `senha`, `co
 -- Estrutura da tabela `materiais`
 --
 
-DROP TABLE IF EXISTS `materiais`;
-CREATE TABLE IF NOT EXISTS `materiais` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `materiais` (
+  `id` int(11) NOT NULL,
   `arquivo` varchar(500) NOT NULL,
   `curso` varchar(200) DEFAULT NULL,
-  `dataUpload` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+  `dataUpload` datetime DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `materiais`
@@ -108,6 +104,50 @@ INSERT INTO `materiais` (`id`, `arquivo`, `curso`, `dataUpload`) VALUES
 (1, 'Poster.pdf', 'Sistemas', '2018-10-21 00:00:00'),
 (2, 'Teste.pdf', 'Sistemas', '2018-10-21 00:00:00'),
 (3, 'Poster.pdf', 'Treinamento', '2018-10-22 00:00:00');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `atividades`
+--
+ALTER TABLE `atividades`
+  ADD PRIMARY KEY (`id_atividade`);
+
+--
+-- Indexes for table `dados`
+--
+ALTER TABLE `dados`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `materiais`
+--
+ALTER TABLE `materiais`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `atividades`
+--
+ALTER TABLE `atividades`
+  MODIFY `id_atividade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `dados`
+--
+ALTER TABLE `dados`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `materiais`
+--
+ALTER TABLE `materiais`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

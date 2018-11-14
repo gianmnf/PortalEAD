@@ -20,22 +20,13 @@ function mostraDiv(divX){
   $("#conteudo > div").css("display","block");
 }
 
-function diaNoite(){
-    var ico = document.getElementById('icoDN');
-    var nav = document.getElementById('navColor');
-    var logo = document.getElementById('logo');
-    var user = document.getElementById('userName');
-    var background = document.getElementById('bodyX');
-    if(ico.innerHTML == "wb_sunny"){
-    ico.innerHTML = "brightness_4";
-    nav.style.background = "#000";
-    logo.setAttribute('style', 'color:#FFF !important');
-    user.setAttribute('style', 'color:#FFF !important');
-    }
-    else if (ico.innerText === 'brightness_4'){
-    ico.innerText = 'wb_sunny';
-    nav.style.background = "#80d8ff";
-    logo.setAttribute('style', 'color:#000 !important');
-    user.setAttribute('style', 'color:#000 !important');
-    }
-  }
+function quest(){    
+    $('#numQuestoes').keyup(function() {
+        debugger
+        var i;
+        var val = $(this).val();
+        for(i = 0; i < val; i++){
+        $('#contAtivs').load('ativ.php');
+        }
+        });
+}

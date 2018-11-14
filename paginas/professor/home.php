@@ -37,37 +37,14 @@ if ($result=mysqli_query($con,$pessoa)){
           <div id="ativ" style="display:none; margin:auto; height:100%;">
             <h4 style="text-align:center; color:white">Enviar Atividade</h4>
             <form action="paginas/professor/cadastraAtividade.php" method="post" id="FormAtividade">
-            <select id="opt" name="tipo" onchange="checkQuest(this)" class="browser-default">
-            <option selected="selected" disabled="disabled">Selecione um tipo</option>
-            <option value="Aberta">Aberta</option>
-            <option value="Multipla">Múltipla Escolha</option>
-            <option value="CertoErrado">Certo ou Errado</option>
-            <option value="Justifica">A primeira justifica a Segunda</option></select>
-            <div id="perg"></div>
-            <div id="pergCont"></div>
-            <script>
-            function checkQuest(opc){
-              var valor = opc.options[opc.selectedIndex].value;
-              debugger
-              var perg = document.querySelector("#perg");
-              var cont = document.querySelector("#pergCont");
-                if(valor == "Aberta" || valor == "CertoErrado"){
-                  perg.innerHTML = "<label for='pergunta'>Insira a Pergunta</label><input name=pergunta class=materialize-textarea>";
-                  cont.innerHTML = "";
-              }
-              else if(valor == "Multipla"){
-                  perg.innerHTML = "<label for='pergunta'>Insira a Pergunta</label><input name=pergunta class=materialize-textarea>";
-                  cont.innerHTML = "<label for='alt1'>Alternativa A</label><input type=text name=alt1> <label for='alt2'>Alternativa B</label><input type=text name=alt2> <label for='alt3'>Alternativa C</label><input type=text name=alt3> <label for='alt4'>Alternativa D</label><input type=text name=alt4> <label for='alt5'>Alternativa E</label><input type=text name=alt5>";
-              }
-              else if(valor="Justifica"){
-                perg.innerHTML = "<label for='perg1'>Insira a Primeira Pergunta</label><input type=text name=perg1> <label for='perg2'>Insira a Segunda Pergunta</label><input type=text name=perg2>";
-                cont.innerHTML = "";
-              }
-            }
-            </script>
-            <label>Insira o valor desta Atividade</label>
-            <input type="text" id="valor" name="valor">
-            <input class="btn waves-effect waves-light gradient-45deg-light-blue-indigo" type="submit" value="Enviar">
+            <?php include 'ativ.php' ?>
+            </form>
+          </div>
+          <div id="ativConj" style="display:none; margin:auto; height:100%;">
+            <h4 style="text-align:center; color:white">Enviar Conjunto de Atividades</h4>
+            <label for="numQuestoes">Digite o número de questões</label><input type="number" id="numQuestoes">
+            <form action="paginas/professor/cadastraAtividade.php" method="post" id="FormAtividades">
+            <div id="contAtivs"></div>
             </form>
           </div>
           <div id="notas" style="display:none; margin:auto; height:100%;">

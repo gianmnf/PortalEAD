@@ -33,6 +33,12 @@
                     </a>
                 </li>
                 <li class="bold">
+                  <a class="waves-effect waves-cyan" onclick="mostraDiv('ativConj')">
+                      <i class="material-icons">edit</i>
+                      <span class="nav-text">Enviar Conjunto de Atividades</span>
+                    </a>
+                </li>
+                <li class="bold">
                   <a class="waves-effect waves-cyan" onclick="mostraDiv('notas')">
                       <i class="material-icons">grade</i>
                       <span class="nav-text">Lançar Notas</span>
