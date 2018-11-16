@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 16-Nov-2018 às 22:35
+-- Generation Time: 17-Nov-2018 às 00:52
 -- Versão do servidor: 10.1.35-MariaDB
 -- versão do PHP: 7.2.9
 
@@ -39,7 +39,9 @@ CREATE TABLE `acessos` (
 --
 
 INSERT INTO `acessos` (`id`, `id_aluno`, `dataAcesso`) VALUES
-(1, 4, '2018-11-16 21:32:30');
+(1, 4, '2018-11-16 21:32:30'),
+(2, 4, '2018-11-16 22:38:27'),
+(3, 3, '2018-11-16 23:22:06');
 
 -- --------------------------------------------------------
 
@@ -57,20 +59,6 @@ CREATE TABLE `atividades` (
   `valor` int(11) DEFAULT NULL,
   `correta` varchar(10) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- Extraindo dados da tabela `atividades`
---
-
-INSERT INTO `atividades` (`id_atividade`, `pergunta`, `tipoPergunta`, `multipla`, `resposta`, `nota`, `valor`, `correta`) VALUES
-(1, 'Como é feito um teste?', 'Aberta', NULL, 'dsfdssdsfsdfdsf', 3, 4, NULL),
-(2, 'Testando atividades?', 'Aberta', NULL, 'fdsfdsfdsqweqewqe', 2, 3, NULL),
-(3, 'Como executar uma sequencia for()?', 'Aberta', NULL, 'asDASDSADSADSA', 1, 2, NULL),
-(4, 'Defina a velocidade máxima permitida na passagem de um semáforo de uma avenida, leia a placa dos automóveis e a velocidade com que cada motorista passa pelo semáforo e que calcule a multa que este motorista deverá receber, sabendo que são pagos R$ 5,00 por cada quilômetro que o motorista ultrapassar acima da velocidade permitida, até um limite de R$ 190,00.', 'Aberta', NULL, 'saddsafdfgxcxcz', 2, 2, NULL),
-(5, 'Um tipo abstrato de dados está desvinculado de sua implementação, ou seja, a sua definição visa a preocupação com o que ele faz e não como ele faz. | A lista duplamente encadeada além de saber o próximo nó, cada elemento também conhece o nó anterior a ele na lista, o que facilita a remoção de um elemento e a exibição dos elementos na ordem inversa. ', 'Justifica', NULL, 'As duas afirmações são verdadeiras, e a segunda não justifica a primeira.', 1, 1, NULL),
-(6, 'Analise as afirmações a seguir sobre algoritmos.  I Um algoritmo é a solução específica para um problema específico. II Todo algoritmo recursivo tem um equivalente iterativo, e todo algoritmo iterativo tem um equivalente recursivo. III Um algoritmo possui uma quantidade de passos definidos, garantindo que ele possua um tempo máximo, possível de calcular, para terminar. IV Todos os dados, em um algoritmo, são armazenados em variáveis, através da operação de atribuição.  Estão corretas', 'Multipla', 'III e IV|II e III|I e IV|I e II|I e III', 'II e III', 1, 1, NULL),
-(7, 'Julgue o item seguinte a respeito da construção de algoritmos, dos conceitos de variáveis e de bloco de comandos e das estruturas de controle.    Durante a execução de um programa, o conteúdo de uma variável pode mudar ao longo do tempo, no entanto ela só pode armazenar um valor por vez.', 'CertoErrado', NULL, 'Errado', 1, 1, NULL),
-(8, 'Os códigos escritos em C só funcionam no Windows?', 'CertoErrado', NULL, NULL, NULL, 1, 'Errado');
 
 -- --------------------------------------------------------
 
@@ -98,8 +86,8 @@ CREATE TABLE `dados` (
 INSERT INTO `dados` (`id`, `usuario`, `nome`, `sobrenome`, `email`, `senha`, `confSenha`, `nivel`, `curso`, `acesso`) VALUES
 (1, 'gianvelox', 'Gian', 'Michel', 'gianveloxsi@gmail.com', 'a8e0a09388d92d2a17633e4e5adbdc66', 'a8e0a09388d92d2a17633e4e5adbdc66', 'Aluno', 'Sistemas de Informação', NULL),
 (2, 'sandro', 'Sandro', 'Matias', 'sandro@unipam.edu.br', '2c40837dd4b97fd00a5a598a8a25426f', '2c40837dd4b97fd00a5a598a8a25426f', 'Professor', 'Sistemas de Informação', NULL),
-(3, 'jcarlos', 'Jose', 'Carlos', 'jcarlos_2013@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'e10adc3949ba59abbe56e057f20f883e', 'Aluno', 'Sistemas de Informação', NULL),
-(4, 'a', 'Antônio', 'Fonseca', 'a@a.com', '0cc175b9c0f1b6a831c399e269772661', '0cc175b9c0f1b6a831c399e269772661', 'Aluno', 'Sistemas de Informação', 1),
+(3, 'jcarlos', 'Jose', 'Carlos', 'jcarlos_2013@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'e10adc3949ba59abbe56e057f20f883e', 'Aluno', 'Sistemas de Informação', 1),
+(4, 'a', 'Antônio', 'Fonseca', 'a@a.com', '0cc175b9c0f1b6a831c399e269772661', '0cc175b9c0f1b6a831c399e269772661', 'Aluno', 'Sistemas de Informação', 2),
 (5, 'p', 'Fabrício', 'Araújo', 'fonfas@unipam.edu.br', '83878c91171338902e0fe0fb97a8c47a', '83878c91171338902e0fe0fb97a8c47a', 'Professor', 'Sistemas de Informação', NULL),
 (6, 't', 'Treinamento', 'Treinamento', 'treina@unipam.edu.br', 'e358efa489f58062f10dd7316b65649e', 'e358efa489f58062f10dd7316b65649e', 'Aluno', 'Treinamento da Biblioteca', NULL);
 
@@ -161,13 +149,13 @@ ALTER TABLE `materiais`
 -- AUTO_INCREMENT for table `acessos`
 --
 ALTER TABLE `acessos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `atividades`
 --
 ALTER TABLE `atividades`
-  MODIFY `id_atividade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_atividade` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `dados`
