@@ -45,56 +45,65 @@
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script>
 Highcharts.chart('container', {
-    chart: {
-        type: 'column',
-        backgroundColor: null
-    },
-    title: {
-        text: 'Gráfico de Desempenho'
-    },
-    subtitle: {
-      <?php foreach($colunaNotas as $colNota){ $dist+=$colNota['valor'];} ?>
-        text: 'Pontos distribuídos: <?php echo $dist ?>'
-    },
     xAxis: {
-        type: 'category',
-        labels: {
-            style: {
-                fontSize: '13px',
-                fontFamily: 'Verdana, sans-serif'
-            }
+        type: 'datetime'
+   },
+  
+  title: {
+    text: 'Dashboard'
+  },
+
+  yAxis: {
+    title: {
+      text: 'Informações'
+    }
+  },
+  legend: {
+    layout: 'vertical',
+    align: 'right',
+    verticalAlign: 'middle'
+  },
+
+  plotOptions: {
+    series: {
+      label: {
+        connectorAllowed: false
+      },
+      pointStart: Date.UTC(2018, 6, 30),
+      pointInterval: 24 * 3600 * 1000
+    }
+  },
+
+  series: [
+    <?php foreach($colunaNotas as $colNota){ $dist+=$colNota['valor'];$ativs+=1;} ?>
+      {
+    name: 'Acessos',
+    data: [<?php echo $acessoDB['acesso'] ?>]
+  }, {
+    name: 'Pontos Obtidos',
+    data: [<?php echo $colNota['nota'];?>]
+  }, {
+    name: 'Pontos Distribuídos',
+    data: [<?php echo $dist ?>]
+  }, {
+    name: 'Atividades Enviadas',    
+    data: [<?php echo $ativs ?>]
+  },],
+
+  responsive: {
+    rules: [{
+      condition: {
+        maxWidth: 500
+      },
+      chartOptions: {
+        legend: {
+          layout: 'horizontal',
+          align: 'center',
+          verticalAlign: 'bottom'
         }
-    },
-    yAxis: {
-        min: 0,
-        title: {
-            text: 'Pontos'
-        }
-    },
-    legend: {
-        enabled: true
-    },
-    tooltip: {
-        pointFormat: 'Pontos obtidos: {point.y:.1f}'
-    },
-    series: [{
-        name: 'Pontos Obtidos',
-        data: [
-          <?php foreach($colunaNotas as $colNota){ $string = $colNota['pergunta']; ?>
-            ['<?php echo utf8_encode(substr($string,0,40)); ?>', <?php echo $colNota['nota'] ?>],
-          <?php } ?>
-        ],
-        dataLabels: {
-            enabled: true,
-            color: '#FFFFFF',
-            align: 'right',
-            format: '{point.y:.1f}', // one decimal
-            style: {
-                fontSize: '13px',
-                fontFamily: 'Verdana, sans-serif'
-            }
-        }
+      }
     }]
+  }
 });</script>
 <script>
 $(function() {

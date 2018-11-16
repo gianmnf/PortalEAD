@@ -25,6 +25,7 @@ while ($row=mysqli_fetch_row($result))
 mysqli_free_result($result);
 }
 $dist=0;
+$ativs=0;
 ?>
 <section id="content">
           <!--start container-->

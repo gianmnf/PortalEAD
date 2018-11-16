@@ -14,9 +14,9 @@
 			$_SESSION['usuario'] = $dados_usuario['usuario'];
 			$_SESSION['nivel'] = $dados_usuario['nivel'];
 			$_SESSION['curso'] = $dados_usuario['curso'];			
-			header('Location: ../index');
+			header('Location: ../index.php');
 		} else {
-			header('Location: ../index?erro=1');
+			header('Location: ../index.php?erro=1');
 		}
 	} else {
 		echo 'Erro na execução da consulta, favor entrar em contato com o admin do site';

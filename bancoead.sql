@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 14-Nov-2018 às 22:38
+-- Generation Time: 16-Nov-2018 às 22:35
 -- Versão do servidor: 10.1.35-MariaDB
 -- versão do PHP: 7.2.9
 
@@ -21,6 +21,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `bancoead`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `acessos`
+--
+
+CREATE TABLE `acessos` (
+  `id` int(11) NOT NULL,
+  `id_aluno` int(11) NOT NULL,
+  `dataAcesso` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `acessos`
+--
+
+INSERT INTO `acessos` (`id`, `id_aluno`, `dataAcesso`) VALUES
+(1, 4, '2018-11-16 21:32:30');
 
 -- --------------------------------------------------------
 
@@ -68,20 +87,21 @@ CREATE TABLE `dados` (
   `senha` varchar(32) NOT NULL,
   `confSenha` varchar(32) NOT NULL,
   `nivel` enum('Aluno','Professor') NOT NULL,
-  `curso` varchar(100) NOT NULL
+  `curso` varchar(100) NOT NULL,
+  `acesso` int(10) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `dados`
 --
 
-INSERT INTO `dados` (`id`, `usuario`, `nome`, `sobrenome`, `email`, `senha`, `confSenha`, `nivel`, `curso`) VALUES
-(1, 'gianvelox', 'Gian', 'Michel', 'gianveloxsi@gmail.com', 'a8e0a09388d92d2a17633e4e5adbdc66', 'a8e0a09388d92d2a17633e4e5adbdc66', 'Aluno', 'Sistemas de Informação'),
-(2, 'sandro', 'Sandro', 'Matias', 'sandro@unipam.edu.br', '2c40837dd4b97fd00a5a598a8a25426f', '2c40837dd4b97fd00a5a598a8a25426f', 'Professor', 'Sistemas de Informação'),
-(3, 'jcarlos', 'Jose', 'Carlos', 'jcarlos_2013@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'e10adc3949ba59abbe56e057f20f883e', 'Aluno', 'Sistemas de Informação'),
-(4, 'a', 'Antônio', 'Fonseca', 'a@a.com', '0cc175b9c0f1b6a831c399e269772661', '0cc175b9c0f1b6a831c399e269772661', 'Aluno', 'Sistemas de Informação'),
-(5, 'p', 'Fabrício', 'Araújo', 'fonfas@unipam.edu.br', '83878c91171338902e0fe0fb97a8c47a', '83878c91171338902e0fe0fb97a8c47a', 'Professor', 'Sistemas de Informação'),
-(6, 't', 'Treinamento', 'Treinamento', 'treina@unipam.edu.br', 'e358efa489f58062f10dd7316b65649e', 'e358efa489f58062f10dd7316b65649e', 'Aluno', 'Treinamento da Biblioteca');
+INSERT INTO `dados` (`id`, `usuario`, `nome`, `sobrenome`, `email`, `senha`, `confSenha`, `nivel`, `curso`, `acesso`) VALUES
+(1, 'gianvelox', 'Gian', 'Michel', 'gianveloxsi@gmail.com', 'a8e0a09388d92d2a17633e4e5adbdc66', 'a8e0a09388d92d2a17633e4e5adbdc66', 'Aluno', 'Sistemas de Informação', NULL),
+(2, 'sandro', 'Sandro', 'Matias', 'sandro@unipam.edu.br', '2c40837dd4b97fd00a5a598a8a25426f', '2c40837dd4b97fd00a5a598a8a25426f', 'Professor', 'Sistemas de Informação', NULL),
+(3, 'jcarlos', 'Jose', 'Carlos', 'jcarlos_2013@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'e10adc3949ba59abbe56e057f20f883e', 'Aluno', 'Sistemas de Informação', NULL),
+(4, 'a', 'Antônio', 'Fonseca', 'a@a.com', '0cc175b9c0f1b6a831c399e269772661', '0cc175b9c0f1b6a831c399e269772661', 'Aluno', 'Sistemas de Informação', 1),
+(5, 'p', 'Fabrício', 'Araújo', 'fonfas@unipam.edu.br', '83878c91171338902e0fe0fb97a8c47a', '83878c91171338902e0fe0fb97a8c47a', 'Professor', 'Sistemas de Informação', NULL),
+(6, 't', 'Treinamento', 'Treinamento', 'treina@unipam.edu.br', 'e358efa489f58062f10dd7316b65649e', 'e358efa489f58062f10dd7316b65649e', 'Aluno', 'Treinamento da Biblioteca', NULL);
 
 -- --------------------------------------------------------
 
@@ -110,6 +130,12 @@ INSERT INTO `materiais` (`id`, `arquivo`, `curso`, `dataUpload`) VALUES
 --
 
 --
+-- Indexes for table `acessos`
+--
+ALTER TABLE `acessos`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `atividades`
 --
 ALTER TABLE `atividades`
@@ -130,6 +156,12 @@ ALTER TABLE `materiais`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `acessos`
+--
+ALTER TABLE `acessos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `atividades`
