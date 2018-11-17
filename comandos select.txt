@@ -1,0 +1,1 @@
+SELECT ac.id_aluno,count(ac.dataAcesso),date_format(ac.dataacesso,'%d/%m/%Y') FROM acessos as ac group by ac.id_aluno
