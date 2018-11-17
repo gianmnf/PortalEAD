@@ -37,7 +37,6 @@
        $('#FormAtividade').ajaxForm(function() {
           Materialize.toast('Atividade inserida com sucesso!', 4000);
        });
-       quest();
   </script>
   </body>
 </html>
