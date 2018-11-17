@@ -37,14 +37,19 @@ if ($result=mysqli_query($con,$pessoa)){
           <div id="ativ" style="display:none; margin:auto; height:100%;">
             <h4 style="text-align:center; color:white">Enviar Atividade</h4>
             <form action="paginas/professor/cadastraAtividade.php" method="post" id="FormAtividade">
-            <?php include 'ativ.php' ?>
+            
             </form>
           </div>
           <div id="ativConj" style="display:none; margin:auto; height:100%;">
             <h4 style="text-align:center; color:white">Enviar Conjunto de Atividades</h4>
-            <label for="numQuestoes">Digite o número de questões</label><input type="number" id="numQuestoes">
             <form action="paginas/professor/cadastraAtividade.php" method="post" id="FormAtividades">
-            <div id="contAtivs"></div>
+            <table class="table table-responsive" id="questoes">
+            <tr>
+            <td><select id="opt1" name="tipo[]" onchange="checkQuest(this)" class="browser-default"> <option selected="selected" disabled="disabled">Selecione um tipo</option> <option value="Aberta">Aberta</option> <option value="Multipla">Múltipla Escolha</option> <option value="CertoErrado">Certo ou Errado</option> <option value="Justifica">A primeira justifica a Segunda</option></select> <div id="perg1"></div> <div id="pergCont1"></div> <label>Insira o valor desta Atividade</label> <input type="text" id="valor1" name="valor"></td>
+            <td><button type="button" name="addPerg" id="addPerg" onclick="addQuestao()">Adicionar Pergunta</button></td>
+            </tr>
+            </table>
+            <input class="btn waves-effect waves-light gradient-45deg-light-blue-indigo" type="submit" value="Enviar">
             </form>
           </div>
           <div id="notas" style="display:none; margin:auto; height:100%;">

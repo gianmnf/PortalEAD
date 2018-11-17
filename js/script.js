@@ -19,14 +19,3 @@ function mostraDiv(divX){
   $('#conteudo').append($('#' + divX).html());
   $("#conteudo > div").css("display","block");
 }
-
-function quest(){    
-    $('#numQuestoes').keyup(function() {
-        debugger
-        var i;
-        var val = $(this).val();
-        for(i = 0; i < val; i++){
-        $('#contAtivs').load('ativ.php');
-        }
-        });
-}

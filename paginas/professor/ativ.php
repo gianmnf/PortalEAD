@@ -16,7 +16,7 @@
                   perg.innerHTML = "<label for='pergunta'>Insira a Pergunta</label><input name=pergunta class=materialize-textarea>";
                   cont.innerHTML = "";
               }
-              if(valor == "CertoErrado"){
+              else if(valor == "CertoErrado"){
                 perg.innerHTML = "<label for='pergunta'>Insira a Pergunta</label><input name=pergunta class=materialize-textarea>";
                 cont.innerHTML = "<label for='correta'>Alternativa Correta</label><select class=browser-default name=correta><option value=Certo>Certo</option><option value=Errado>Errado</option></select>";
               }
