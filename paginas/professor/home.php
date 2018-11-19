@@ -45,7 +45,7 @@ if ($result=mysqli_query($con,$pessoa)){
             <form action="paginas/professor/cadastraAtividade.php" method="post" id="FormAtividades">
             <table class="table table-responsive" id="questoes">
             <tr>
-            <td><select id="opt0" name="tipo[0]" onchange="checkQuest(this)" class="browser-default"> <option selected="selected" disabled="disabled">Selecione um tipo</option> <option value="Aberta">Aberta</option> <option value="Multipla">Múltipla Escolha</option> <option value="CertoErrado">Certo ou Errado</option> <option value="Justifica">A primeira justifica a Segunda</option></select> <div id="perg0"></div> <div id="pergCont0"></div> <label for="valor[0]">Insira o valor desta Atividade</label> <input type="text" id="valor0" name="valor[0]"></td>
+            <td><select id="opt0" name="tipo[0]" onchange="checkQuest(this)" class="browser-default"> <option selected="selected" disabled="disabled">Selecione um tipo</option> <option value="Aberta">Aberta</option> <option value="Multipla">Múltipla Escolha</option> <option value="CertoErrado">Certo ou Errado</option></select> <div id="perg0"></div> <div id="pergCont0"></div> <label for="valor[0]">Insira o valor desta Atividade</label> <input type="text" id="valor0" name="valor[0]"></td>
             <td><button type="button" name="addPerg" id="addPerg" onclick="addQuestao()">Adicionar Pergunta</button></td>
             </tr>
             </table>

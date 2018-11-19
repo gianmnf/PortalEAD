@@ -102,26 +102,10 @@
                 corrM.setAttribute('name','correta['+i+']');
                 cm.setAttribute('for','correta['+i+']');
                }
-              else if(valor="Justifica"){
-                perg.innerHTML = "<label id=lblPerg1 for='perg1'>Insira a Primeira Pergunta</label><input type=text id=perg1J> <label id=lblPerg2 for='perg2'>Insira a Segunda Pergunta</label><input type=text id=perg2J>";
-                cont.innerHTML = "<label id=lblCorrJ for='correta[i]'>Alternativa Correta</label><select class=browser-default id=corrJ name=correta[i]><option value=A>As duas afirmações são verdadeiras, e a segunda justifica a primeira.</option><option value=B>As duas afirmações são verdadeiras, e a segunda não justifica a primeira.</option><option value=C>A primeira afirmação é verdadeira, e a segunda é falsa.</option><option value=D>A primeira afirmação é falsa, e a segunda é verdadeira.</option><option value=E>As duas afirmações são falsas.</option></select>";
-                var perg1 = document.querySelector("#perg1J");
-                var perg2 = document.querySelector("#perg2J");
-                var cor = document.querySelector("#corrJ");
-                var lblPerg1 = document.querySelector("#lblPerg1");
-                var lblPerg2 = document.querySelector("#lblPerg2");
-                var lblCorrJ = document.querySelector("#lblCorrJ");
-                perg1.setAttribute('name','perg1['+i+']');
-                perg2.setAttribute('name','perg2['+i+']');
-                cor.setAttribute('name','correta['+i+']');
-                lblPerg1.setAttribute('for','perg1['+i+']');
-                lblPerg2.setAttribute('for','perg2['+i+']');
-                lblCorrJ.setAttribute('for','correta['+i+']');
-              }
             }
   function addQuestao(){
     i++;
-    $('#questoes').append('<tr id="coluna'+i+'"><td><select id="opt'+i+'" name="tipo['+i+']" onchange="checkQuest(opt'+i+')" class="browser-default"> <option selected="selected" disabled="disabled">Selecione um tipo</option> <option value="Aberta">Aberta</option> <option value="Multipla">Múltipla Escolha</option> <option value="CertoErrado">Certo ou Errado</option> <option value="Justifica">A primeira justifica a Segunda</option></select> <div id="perg'+i+'"></div> <div id="pergCont'+i+'"></div> <label>Insira o valor desta Atividade</label> <input type="text" id="valor'+i+'" name="valor['+i+']"></td> <td><button type="button" name="remPerg" class="btn_remove" id="'+i+'">X</button></td> </tr>');
+    $('#questoes').append('<tr id="coluna'+i+'"><td><select id="opt'+i+'" name="tipo['+i+']" onchange="checkQuest(opt'+i+')" class="browser-default"> <option selected="selected" disabled="disabled">Selecione um tipo</option> <option value="Aberta">Aberta</option> <option value="Multipla">Múltipla Escolha</option> <option value="CertoErrado">Certo ou Errado</option></select> <div id="perg'+i+'"></div> <div id="pergCont'+i+'"></div> <label>Insira o valor desta Atividade</label> <input type="text" id="valor'+i+'" name="valor['+i+']"></td> <td><button type="button" name="remPerg" class="btn_remove" id="'+i+'">X</button></td> </tr>');
 }
 $(document).on('click', '.btn_remove', function(){
     var btn_id = $(this).attr("id");
