@@ -28,16 +28,15 @@
       $(document).ready(function(){
           $('#modal').modal();
           $('#modalLogoff').modal();
-
-        /* Carrega a pesquisa */
-        $(document).ready(function () {
-  $("#busca").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#campoBusca tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  }); 
-});
+          $('#FormAtividade').ajaxForm(function() {
+          Materialize.toast('Atividade enviada com sucesso!', 4000);
+          });
+          $("#busca").on("keyup", function() {
+          var value = $(this).val().toLowerCase();
+          $("#campoBusca tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          });
+        }); 
         });
     </script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
@@ -70,7 +69,7 @@ Highcharts.chart('container', {
         connectorAllowed: false
       },
       pointStart: Date.UTC(2018, 6, 30),
-      pointInterval: 24 * 3600 * 1000
+      pointInterval: 24 * 3600 * 1000 * 30
     }
   },
 
@@ -79,16 +78,7 @@ Highcharts.chart('container', {
       {
     name: 'Acessos',
     data: [<?php echo $acessoDB['acesso'] ?>]
-  }, {
-    name: 'Pontos Obtidos',
-    data: [<?php echo $colNota['nota'];?>]
-  }, {
-    name: 'Pontos Distribuídos',
-    data: [<?php echo $dist ?>]
-  }, {
-    name: 'Atividades Enviadas',    
-    data: [<?php echo $ativs ?>]
-  },],
+  }],
 
   responsive: {
     rules: [{
@@ -105,12 +95,5 @@ Highcharts.chart('container', {
     }]
   }
 });</script>
-<script>
-$(function() {
-       $('#FormAtividade').ajaxForm(function() {
-          Materialize.toast('Atividade enviada com sucesso!', 4000);
-       });
-     });
-</script>
   </body>
 </html>

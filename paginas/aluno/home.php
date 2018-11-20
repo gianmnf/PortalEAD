@@ -50,20 +50,22 @@ $ativs=0;
             <input type="text" style="display:none;" name="idUser" id="idUser" value="<?php echo $id ?>"></input>
             <?php foreach($colunaAtiv as $coluna){ ?>
             <?php if($coluna["tipoPergunta"] == 'Aberta'){ ?>
+            <h5 id="titAberta" style="color:white;">Questões Abertas</h5>
             <h5 id="pergunta" style="color:white;"><?php echo utf8_encode($coluna["pergunta"]) ?></h5>
             <textarea id="resposta" name="resposta[<?php echo $coluna["id_atividade"] ?>]" cols="10" rows="10"></textarea>
             <?php } else if($coluna["tipoPergunta"] == 'CertoErrado'){ ?>
               <h5 id="pergunta" style="color:white;"><?php echo utf8_encode($coluna["pergunta"]) ?></h5>
-            <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" id="qc" value="Certo"><label for="qc"> Certo</label><br>
-            <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" id="qe" value="Errado"><label for="qe"> Errado</label>
+            <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" id="qc[<?php echo $coluna["id_atividade"] ?>]" value="Certo"><label for="qc[<?php echo $coluna["id_atividade"] ?>]"> Certo</label><br>
+            <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" id="qe[<?php echo $coluna["id_atividade"] ?>]" value="Errado"><label for="qe[<?php echo $coluna["id_atividade"] ?>]"> Errado</label>
             <?php } else if($coluna["tipoPergunta"] == 'Multipla'){ 
             $alts = explode("|",trim($coluna['multipla']));?>
+            <h5 id="titAberta" style="color:white;">Questões de Multipla Escolha</h5>
             <h5 id="pergunta" style="color:white;"><?php echo utf8_encode($coluna["pergunta"]) ?></h5>
-            <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" value="<?php echo $alts[0] ?>" id="qAM"><label for="qAM"> <?php echo $alts[0] ?></label><br>
-            <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" value="<?php echo $alts[1] ?>" id="qBM"><label for="qBM"> <?php echo $alts[1] ?></label><br>
-            <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" value="<?php echo $alts[2] ?>" id="qCM"><label for="qCM"> <?php echo $alts[2] ?></label><br>
-            <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" value="<?php echo $alts[3] ?>" id="qDM"><label for="qDM"> <?php echo $alts[3] ?></label><br>
-            <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" value="<?php echo $alts[4] ?>" id="qEM"><label for="qEM"> <?php echo $alts[4] ?></label><br>
+            <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" value="<?php echo $alts[0] ?>" id="qAM[<?php echo $coluna["id_atividade"]?>]"><label for="qAM[<?php echo $coluna["id_atividade"]?>]"> <?php echo $alts[0] ?></label><br>
+            <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" value="<?php echo $alts[1] ?>" id="qBM[<?php echo $coluna["id_atividade"]?>]"><label for="qBM[<?php echo $coluna["id_atividade"]?>]"> <?php echo $alts[1] ?></label><br>
+            <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" value="<?php echo $alts[2] ?>" id="qCM[<?php echo $coluna["id_atividade"]?>]"><label for="qCM[<?php echo $coluna["id_atividade"]?>]"> <?php echo $alts[2] ?></label><br>
+            <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" value="<?php echo $alts[3] ?>" id="qDM[<?php echo $coluna["id_atividade"]?>]"><label for="qDM[<?php echo $coluna["id_atividade"]?>]"> <?php echo $alts[3] ?></label><br>
+            <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" value="<?php echo $alts[4] ?>" id="qEM[<?php echo $coluna["id_atividade"]?>]"><label for="qEM[<?php echo $coluna["id_atividade"]?>]"> <?php echo $alts[4] ?></label><br>
             <?php } ?>
             <?php } ?>
             <br><br>
