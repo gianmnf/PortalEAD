@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 19-Nov-2018 às 15:51
+-- Generation Time: 20-Nov-2018 às 16:01
 -- Versão do servidor: 5.7.23
 -- versão do PHP: 7.2.10
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `acessos` (
   `id_aluno` int(11) NOT NULL,
   `dataAcesso` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=153 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=169 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `acessos`
@@ -192,7 +192,23 @@ INSERT INTO `acessos` (`id`, `id_aluno`, `dataAcesso`) VALUES
 (149, 5, '2018-11-19 15:43:05'),
 (150, 5, '2018-11-19 15:47:23'),
 (151, 5, '2018-11-19 15:48:30'),
-(152, 5, '2018-11-19 15:48:32');
+(152, 5, '2018-11-19 15:48:32'),
+(153, 5, '2018-11-20 14:34:26'),
+(154, 5, '2018-11-20 14:35:15'),
+(155, 5, '2018-11-20 14:35:22'),
+(156, 5, '2018-11-20 14:38:01'),
+(157, 5, '2018-11-20 14:43:09'),
+(158, 5, '2018-11-20 14:43:14'),
+(159, 5, '2018-11-20 14:43:46'),
+(160, 5, '2018-11-20 14:48:54'),
+(161, 5, '2018-11-20 14:51:42'),
+(162, 5, '2018-11-20 14:55:52'),
+(163, 5, '2018-11-20 14:57:30'),
+(164, 5, '2018-11-20 15:00:14'),
+(165, 5, '2018-11-20 15:00:28'),
+(166, 5, '2018-11-20 15:00:41'),
+(167, 5, '2018-11-20 15:00:45'),
+(168, 4, '2018-11-20 15:28:42');
 
 -- --------------------------------------------------------
 
@@ -210,8 +226,18 @@ CREATE TABLE IF NOT EXISTS `atividades` (
   `nota` float DEFAULT NULL,
   `valor` int(11) DEFAULT NULL,
   `correta` varchar(10) DEFAULT NULL,
+  `email_prof` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id_atividade`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `atividades`
+--
+
+INSERT INTO `atividades` (`id_atividade`, `pergunta`, `tipoPergunta`, `multipla`, `resposta`, `nota`, `valor`, `correta`, `email_prof`) VALUES
+(1, 'Uma lista linear é um conjunto de informações de qualquer tipo, organizadas sequencialmente. A organização sequencial estabelece uma relação de ordem, decorrendo daí a possibilidade de identificar qualquer elemento da lista: o primeiro ou último ou qual elemento precede ou sucede qualquer outro. Partindo dessa organização, explique quais são as operações básicas em listas lineares.', 'Aberta', NULL, NULL, NULL, 2, NULL, 'fonfas@unipam.edu.br'),
+(2, 'Durante a execução do programa os dados são armazenados na memória do computador. As localizações de memória em que esses dados são armazenados se denominam de', 'Multipla', 'Estrutura de Algoritmos|Estrutura de Dados|Tipos de Dados|Estrutura de Arquivos|Tipos de Arquivos', NULL, NULL, 1, 'B', 'fonfas@unipam.edu.br'),
+(3, 'Assinale se a assertiva a seguir é certa ou errada: O comando Top transfere o último elemento para o topo da pilha.', 'CertoErrado', NULL, NULL, NULL, 1, 'Errado', 'fonfas@unipam.edu.br');
 
 -- --------------------------------------------------------
 
@@ -242,7 +268,7 @@ INSERT INTO `dados` (`id`, `usuario`, `nome`, `sobrenome`, `email`, `senha`, `co
 (1, 'gianvelox', 'Gian', 'Michel', 'gianveloxsi@gmail.com', 'a8e0a09388d92d2a17633e4e5adbdc66', 'a8e0a09388d92d2a17633e4e5adbdc66', 'Aluno', 'Sistemas de Informação', NULL),
 (2, 'sandro', 'Sandro', 'Matias', 'sandro@unipam.edu.br', '2c40837dd4b97fd00a5a598a8a25426f', '2c40837dd4b97fd00a5a598a8a25426f', 'Professor', 'Sistemas de Informação', NULL),
 (3, 'jcarlos', 'Jose', 'Carlos', 'jcarlos_2013@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'e10adc3949ba59abbe56e057f20f883e', 'Aluno', 'Sistemas de Informação', 1),
-(4, 'a', 'Antônio', 'Fonseca', 'a@a.com', '0cc175b9c0f1b6a831c399e269772661', '0cc175b9c0f1b6a831c399e269772661', 'Aluno', 'Sistemas de Informação', 2),
+(4, 'a', 'Antônio', 'Fonseca', 'a@a.com', '0cc175b9c0f1b6a831c399e269772661', '0cc175b9c0f1b6a831c399e269772661', 'Aluno', 'Sistemas de Informação', 3),
 (5, 'p', 'Fabrício', 'Araújo', 'fonfas@unipam.edu.br', '83878c91171338902e0fe0fb97a8c47a', '83878c91171338902e0fe0fb97a8c47a', 'Professor', 'Sistemas de Informação', NULL),
 (6, 't', 'Treinamento', 'Treinamento', 'treina@unipam.edu.br', 'e358efa489f58062f10dd7316b65649e', 'e358efa489f58062f10dd7316b65649e', 'Aluno', 'Treinamento da Biblioteca', NULL);
 

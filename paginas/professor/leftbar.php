@@ -27,15 +27,9 @@
                     </a>
                 </li>
                 <li class="bold">
-                  <a class="waves-effect waves-cyan" onclick="mostraDiv('ativ')">
-                      <i class="material-icons">edit</i>
-                      <span class="nav-text">Enviar Atividade</span>
-                    </a>
-                </li>
-                <li class="bold">
                   <a class="waves-effect waves-cyan" onclick="mostraDiv('ativConj')">
                       <i class="material-icons">edit</i>
-                      <span class="nav-text">Enviar Conjunto de Atividades</span>
+                      <span class="nav-text">Enviar Atividades</span>
                     </a>
                 </li>
                 <li class="bold">

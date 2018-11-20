@@ -2,13 +2,14 @@
 $con=mysqli_connect("localhost","root","","bancoead");
 $sql = "SELECT * FROM atividades";
 $id = $_SESSION['id_usuario'];
-$pessoa ="SELECT nome FROM dados where id=$id";
+$pessoa ="SELECT nome,email FROM dados where id=$id";
 $resultado = mysqli_query($con,$sql);
 while($coluna = $resultado->fetch_assoc()){ $colunaResp[] = $coluna; }
 if ($result=mysqli_query($con,$pessoa)){
   while ($row=mysqli_fetch_row($result))
   {
       $nome = $row[0];
+      $email = $row[1];
   }
   mysqli_free_result($result);
   }
@@ -34,15 +35,10 @@ if ($result=mysqli_query($con,$pessoa)){
             <br>
             <img src="images/home.png" alt="conversa" class="responsive-img" style="display:block; margin:auto;">
           </div>
-          <div id="ativ" style="display:none; margin:auto; height:100%;">
-            <h4 style="text-align:center; color:white">Enviar Atividade</h4>
-            <form action="paginas/professor/cadastraAtividade.php" method="post" id="FormAtividade">
-            
-            </form>
-          </div>
           <div id="ativConj" style="display:none; margin:auto; height:100%;">
-            <h4 style="text-align:center; color:white">Enviar Conjunto de Atividades</h4>
+            <h4 style="text-align:center; color:white">Enviar Atividades</h4>
             <form action="paginas/professor/cadastraAtividade.php" method="post" id="FormAtividades">
+            <input type="text" style="display:none;" name="email_prof" value="<?php echo $email ?>">
             <table class="table table-responsive" id="questoes">
             <tr>
             <td><select id="opt0" name="tipo[0]" onchange="checkQuest(this)" class="browser-default"> <option selected="selected" disabled="disabled">Selecione um tipo</option> <option value="Aberta">Aberta</option> <option value="Multipla">Múltipla Escolha</option> <option value="CertoErrado">Certo ou Errado</option></select> <div id="perg0"></div> <div id="pergCont0"></div> <label for="valor[0]">Insira o valor desta Atividade</label> <input type="text" id="valor0" name="valor[0]"></td>
