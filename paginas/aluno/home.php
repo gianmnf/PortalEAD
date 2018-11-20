@@ -46,8 +46,8 @@ $ativs=0;
           <div id="ativ" style="display:none; margin:auto;">
             <h4 style="text-align:center; color:white">Atividades</h4>
             <input type="text" style="display:none;" name="cursoGet" id="curso" value="<?php echo $_SESSION['curso'] ?>"></input>
-            <input type="text" style="display:none;" name="idUser" id="idUser" value="<?php echo $id ?>"></input>
             <form action="paginas/aluno/enviaResposta.php" method="POST" id="FormAtividade">
+            <input type="text" style="display:none;" name="idUser" id="idUser" value="<?php echo $id ?>"></input>
             <?php foreach($colunaAtiv as $coluna){ ?>
             <?php if($coluna["tipoPergunta"] == 'Aberta'){ ?>
             <h5 id="pergunta" style="color:white;"><?php echo utf8_encode($coluna["pergunta"]) ?></h5>
