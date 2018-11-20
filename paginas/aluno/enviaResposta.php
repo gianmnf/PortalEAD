@@ -1,9 +1,13 @@
 <?php
-    error_reporting(0);
     require '../../libs/PHPMailer/PHPMailerAutoload.php';
     $idPergunta = 0;
     $idResposta = 0;
     $c = 1;
+    $corpo_pergP = "";
+    $corpo_pergA = "";
+    $corpo_respP = "";
+    $corpo_respA = "";
+    $corpo_corretaA = "";
     require_once('../../libs/db.class.php');
     $objDb = new db();
     $link = $objDb->conecta_mysql();
@@ -90,7 +94,7 @@
 	}
 	else
 	{
-		echo 'Enviado com sucesso!';
+		header("Refresh:0; url=../../index.php");
     }
     //Envio dos Emails - Professor
     $mailP->isSMTP();
@@ -116,6 +120,6 @@
 	}
 	else
 	{
-		echo 'Enviado com sucesso!';
+		header("Refresh:0; url=../../index.php");
 	}
 ?>
