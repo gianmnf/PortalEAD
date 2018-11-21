@@ -3,6 +3,18 @@ $con=mysqli_connect("localhost","root","","bancoead");
 $id = $_SESSION['id_usuario'];
 $sql = "SELECT * FROM atividades";
 $sqlMateriais = "SELECT * FROM materiais";
+// Count meses
+$ago = mysqli_query($con,"SELECT count(month(dataAcesso)) FROM acessos where id_aluno=$id and month(dataAcesso) = 08 and Year(dataAcesso) = 2018");
+$set = mysqli_query($con,"SELECT count(month(dataAcesso)) FROM acessos where id_aluno=$id and month(dataAcesso) = 09 and Year(dataAcesso) = 2018");
+$out = mysqli_query($con,"SELECT count(month(dataAcesso)) FROM acessos where id_aluno=$id and month(dataAcesso) = 10 and Year(dataAcesso) = 2018");
+$nov = mysqli_query($con,"SELECT count(month(dataAcesso)) FROM acessos where id_aluno=$id and month(dataAcesso) = 11 and Year(dataAcesso) = 2018");
+$dez = mysqli_query($con,"SELECT count(month(dataAcesso)) FROM acessos where id_aluno=$id and month(dataAcesso) = 12 and Year(dataAcesso) = 2018");
+$rowAgo= mysqli_fetch_array($ago);
+$rowSet= mysqli_fetch_array($set);
+$rowOut= mysqli_fetch_array($out);
+$rowNov= mysqli_fetch_array($nov);
+$rowDez= mysqli_fetch_array($dez);
+// ------------------------------------------- //
 $resultado = mysqli_query($con,$sql);
 $resultadoNota = mysqli_query($con,$sql);
 $resultadoMateriais = mysqli_query($con,$sqlMateriais);
@@ -19,6 +31,13 @@ while ($row=mysqli_fetch_row($result))
 }
 mysqli_free_result($result);
 }
+if ($resultAcesso=mysqli_query($con,$pessoa)){
+  while ($row=mysqli_fetch_row($resultAcesso))
+  {
+      $dataAcc = $row[0];
+  }
+  mysqli_free_result($resultAcesso);
+  }
 $dist=0;
 $ativs=0;
 ?>
@@ -54,6 +73,7 @@ $ativs=0;
             <h5 id="pergunta" style="color:white;"><?php echo utf8_encode($coluna["pergunta"]) ?></h5>
             <textarea id="resposta" name="resposta[<?php echo $coluna["id_atividade"] ?>]" cols="10" rows="10"></textarea>
             <?php } else if($coluna["tipoPergunta"] == 'CertoErrado'){ ?>
+              <h5 id="titAberta" style="color:white;">Questões Certo/Errado</h5>
               <h5 id="pergunta" style="color:white;"><?php echo utf8_encode($coluna["pergunta"]) ?></h5>
             <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" id="qc[<?php echo $coluna["id_atividade"] ?>]" value="Certo"><label for="qc[<?php echo $coluna["id_atividade"] ?>]"> Certo</label><br>
             <input type="radio" name="resposta[<?php echo $coluna["id_atividade"] ?>]" id="qe[<?php echo $coluna["id_atividade"] ?>]" value="Errado"><label for="qe[<?php echo $coluna["id_atividade"] ?>]"> Errado</label>
@@ -77,9 +97,9 @@ $ativs=0;
             <table class="centered responsive-table">
         <thead>
           <tr>
-              <th style="color:white;">Atividade</th>
+              <th style="color:white;">Atividade<</th>
               <th style="color:white;">Valor</th>
-              <th style="color:white;">Valor Obtido</th>
+              <th style="color:white;">Valor Obtido/th>
           </tr>
         </thead>
         <tbody>

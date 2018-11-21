@@ -2,10 +2,10 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: 20-Nov-2018 às 16:01
--- Versão do servidor: 5.7.23
--- versão do PHP: 7.2.10
+-- Host: 127.0.0.1
+-- Generation Time: 21-Nov-2018 às 01:17
+-- Versão do servidor: 10.1.35-MariaDB
+-- versão do PHP: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -28,13 +28,11 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `acessos`
 --
 
-DROP TABLE IF EXISTS `acessos`;
-CREATE TABLE IF NOT EXISTS `acessos` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `acessos` (
+  `id` int(11) NOT NULL,
   `id_aluno` int(11) NOT NULL,
-  `dataAcesso` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=169 DEFAULT CHARSET=latin1;
+  `dataAcesso` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `acessos`
@@ -208,7 +206,69 @@ INSERT INTO `acessos` (`id`, `id_aluno`, `dataAcesso`) VALUES
 (165, 5, '2018-11-20 15:00:28'),
 (166, 5, '2018-11-20 15:00:41'),
 (167, 5, '2018-11-20 15:00:45'),
-(168, 4, '2018-11-20 15:28:42');
+(168, 4, '2018-11-20 15:28:42'),
+(169, 0, '2018-11-20 20:07:01'),
+(170, 4, '2018-11-20 20:07:06'),
+(171, 4, '2018-11-20 20:25:42'),
+(172, 4, '2018-11-20 20:46:29'),
+(173, 4, '2018-11-20 20:55:37'),
+(174, 4, '2018-11-20 20:57:54'),
+(175, 4, '2018-11-20 21:04:18'),
+(176, 4, '2018-11-20 21:07:20'),
+(177, 4, '2018-11-20 21:11:04'),
+(178, 4, '2018-11-20 21:14:22'),
+(179, 4, '2018-11-20 21:16:16'),
+(180, 4, '2018-11-20 21:16:46'),
+(181, 4, '2018-11-20 21:17:56'),
+(182, 4, '2018-11-20 21:24:36'),
+(183, 4, '2018-11-20 21:25:20'),
+(184, 4, '2018-11-20 21:26:01'),
+(185, 4, '2018-11-20 21:26:43'),
+(186, 4, '2018-11-20 21:27:47'),
+(187, 4, '2018-11-20 21:28:59'),
+(188, 4, '2018-11-20 21:33:55'),
+(189, 4, '2018-11-20 21:34:56'),
+(190, 4, '2018-11-20 21:36:50'),
+(191, 4, '2018-11-20 21:38:51'),
+(192, 4, '2018-11-20 21:40:12'),
+(193, 4, '2018-11-20 21:42:02'),
+(194, 4, '2018-11-20 21:43:34'),
+(195, 4, '2018-11-20 21:44:02'),
+(196, 4, '2018-11-20 21:46:29'),
+(197, 4, '2018-11-20 21:47:46'),
+(198, 4, '2018-11-20 21:48:59'),
+(199, 4, '2018-11-20 21:49:01'),
+(200, 4, '2018-11-20 21:49:15'),
+(201, 4, '2018-11-20 21:50:51'),
+(202, 4, '2018-11-20 21:52:36'),
+(203, 4, '2018-11-20 21:53:01'),
+(204, 4, '2018-11-20 21:58:38'),
+(205, 4, '2018-11-20 21:58:58'),
+(206, 4, '2018-11-20 22:01:46'),
+(207, 4, '2018-11-20 22:04:03'),
+(208, 4, '2018-11-20 22:17:14'),
+(209, 4, '2018-11-20 22:18:36'),
+(210, 4, '2018-11-20 23:11:09'),
+(211, 4, '2018-11-20 23:11:13'),
+(212, 4, '2018-11-20 23:11:37'),
+(213, 4, '2018-11-20 23:22:05'),
+(214, 4, '2018-11-20 23:22:14'),
+(215, 4, '2018-11-20 23:23:54'),
+(216, 4, '2018-11-20 23:24:44'),
+(217, 4, '2018-11-20 23:25:19'),
+(218, 4, '2018-11-20 23:54:31'),
+(219, 4, '2018-11-20 23:58:14'),
+(220, 4, '2018-11-20 23:59:58'),
+(221, 4, '2018-11-21 00:00:29'),
+(222, 4, '2018-11-21 00:03:51'),
+(223, 4, '2018-11-21 00:04:00'),
+(224, 4, '2018-11-21 00:05:44'),
+(225, 4, '2018-11-21 00:06:31'),
+(226, 4, '2018-11-21 00:08:29'),
+(227, 4, '2018-11-21 00:09:27'),
+(228, 4, '2018-11-21 00:09:46'),
+(229, 5, '2018-11-21 00:12:11'),
+(230, 5, '2018-11-21 00:14:30');
 
 -- --------------------------------------------------------
 
@@ -216,9 +276,8 @@ INSERT INTO `acessos` (`id`, `id_aluno`, `dataAcesso`) VALUES
 -- Estrutura da tabela `atividades`
 --
 
-DROP TABLE IF EXISTS `atividades`;
-CREATE TABLE IF NOT EXISTS `atividades` (
-  `id_atividade` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `atividades` (
+  `id_atividade` int(11) NOT NULL,
   `pergunta` varchar(500) DEFAULT NULL,
   `tipoPergunta` enum('Aberta','Multipla','CertoErrado') DEFAULT NULL,
   `multipla` varchar(300) DEFAULT NULL,
@@ -226,18 +285,8 @@ CREATE TABLE IF NOT EXISTS `atividades` (
   `nota` float DEFAULT NULL,
   `valor` int(11) DEFAULT NULL,
   `correta` varchar(10) DEFAULT NULL,
-  `email_prof` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`id_atividade`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
---
--- Extraindo dados da tabela `atividades`
---
-
-INSERT INTO `atividades` (`id_atividade`, `pergunta`, `tipoPergunta`, `multipla`, `resposta`, `nota`, `valor`, `correta`, `email_prof`) VALUES
-(1, 'Uma lista linear é um conjunto de informações de qualquer tipo, organizadas sequencialmente. A organização sequencial estabelece uma relação de ordem, decorrendo daí a possibilidade de identificar qualquer elemento da lista: o primeiro ou último ou qual elemento precede ou sucede qualquer outro. Partindo dessa organização, explique quais são as operações básicas em listas lineares.', 'Aberta', NULL, NULL, NULL, 2, NULL, 'fonfas@unipam.edu.br'),
-(2, 'Durante a execução do programa os dados são armazenados na memória do computador. As localizações de memória em que esses dados são armazenados se denominam de', 'Multipla', 'Estrutura de Algoritmos|Estrutura de Dados|Tipos de Dados|Estrutura de Arquivos|Tipos de Arquivos', NULL, NULL, 1, 'B', 'fonfas@unipam.edu.br'),
-(3, 'Assinale se a assertiva a seguir é certa ou errada: O comando Top transfere o último elemento para o topo da pilha.', 'CertoErrado', NULL, NULL, NULL, 1, 'Errado', 'fonfas@unipam.edu.br');
+  `email_prof` varchar(200) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -245,9 +294,8 @@ INSERT INTO `atividades` (`id_atividade`, `pergunta`, `tipoPergunta`, `multipla`
 -- Estrutura da tabela `dados`
 --
 
-DROP TABLE IF EXISTS `dados`;
-CREATE TABLE IF NOT EXISTS `dados` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `dados` (
+  `id` int(11) NOT NULL,
   `usuario` varchar(255) NOT NULL,
   `nome` varchar(255) NOT NULL,
   `sobrenome` varchar(255) NOT NULL,
@@ -256,9 +304,8 @@ CREATE TABLE IF NOT EXISTS `dados` (
   `confSenha` varchar(32) NOT NULL,
   `nivel` enum('Aluno','Professor') NOT NULL,
   `curso` varchar(100) NOT NULL,
-  `acesso` int(10) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+  `acesso` int(10) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `dados`
@@ -268,8 +315,8 @@ INSERT INTO `dados` (`id`, `usuario`, `nome`, `sobrenome`, `email`, `senha`, `co
 (1, 'gianvelox', 'Gian', 'Michel', 'gianveloxsi@gmail.com', 'a8e0a09388d92d2a17633e4e5adbdc66', 'a8e0a09388d92d2a17633e4e5adbdc66', 'Aluno', 'Sistemas de Informação', NULL),
 (2, 'sandro', 'Sandro', 'Matias', 'sandro@unipam.edu.br', '2c40837dd4b97fd00a5a598a8a25426f', '2c40837dd4b97fd00a5a598a8a25426f', 'Professor', 'Sistemas de Informação', NULL),
 (3, 'jcarlos', 'Jose', 'Carlos', 'jcarlos_2013@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'e10adc3949ba59abbe56e057f20f883e', 'Aluno', 'Sistemas de Informação', 1),
-(4, 'a', 'Antônio', 'Fonseca', 'a@a.com', '0cc175b9c0f1b6a831c399e269772661', '0cc175b9c0f1b6a831c399e269772661', 'Aluno', 'Sistemas de Informação', 3),
-(5, 'p', 'Fabrício', 'Araújo', 'fonfas@unipam.edu.br', '83878c91171338902e0fe0fb97a8c47a', '83878c91171338902e0fe0fb97a8c47a', 'Professor', 'Sistemas de Informação', NULL),
+(4, 'a', 'Antônio', 'Fonseca', 'gianmnf@unipam.edu.br', '0cc175b9c0f1b6a831c399e269772661', '0cc175b9c0f1b6a831c399e269772661', 'Aluno', 'Sistemas de Informação', 62),
+(5, 'p', 'Fabrício', 'Araújo', 'professorportalead@gmail.com', '83878c91171338902e0fe0fb97a8c47a', '83878c91171338902e0fe0fb97a8c47a', 'Professor', 'Sistemas de Informação', NULL),
 (6, 't', 'Treinamento', 'Treinamento', 'treina@unipam.edu.br', 'e358efa489f58062f10dd7316b65649e', 'e358efa489f58062f10dd7316b65649e', 'Aluno', 'Treinamento da Biblioteca', NULL);
 
 -- --------------------------------------------------------
@@ -278,14 +325,12 @@ INSERT INTO `dados` (`id`, `usuario`, `nome`, `sobrenome`, `email`, `senha`, `co
 -- Estrutura da tabela `materiais`
 --
 
-DROP TABLE IF EXISTS `materiais`;
-CREATE TABLE IF NOT EXISTS `materiais` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `materiais` (
+  `id` int(11) NOT NULL,
   `arquivo` varchar(500) NOT NULL,
   `curso` varchar(200) DEFAULT NULL,
-  `dataUpload` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+  `dataUpload` datetime DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `materiais`
@@ -295,6 +340,62 @@ INSERT INTO `materiais` (`id`, `arquivo`, `curso`, `dataUpload`) VALUES
 (1, 'Poster.pdf', 'Sistemas', '2018-10-21 00:00:00'),
 (2, 'Teste.pdf', 'Sistemas', '2018-10-21 00:00:00'),
 (3, 'Poster.pdf', 'Treinamento', '2018-10-22 00:00:00');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `acessos`
+--
+ALTER TABLE `acessos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `atividades`
+--
+ALTER TABLE `atividades`
+  ADD PRIMARY KEY (`id_atividade`);
+
+--
+-- Indexes for table `dados`
+--
+ALTER TABLE `dados`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `materiais`
+--
+ALTER TABLE `materiais`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `acessos`
+--
+ALTER TABLE `acessos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=231;
+
+--
+-- AUTO_INCREMENT for table `atividades`
+--
+ALTER TABLE `atividades`
+  MODIFY `id_atividade` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `dados`
+--
+ALTER TABLE `dados`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `materiais`
+--
+ALTER TABLE `materiais`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

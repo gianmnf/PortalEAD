@@ -43,13 +43,14 @@
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script>
+
 Highcharts.chart('container', {
     xAxis: {
         type: 'datetime'
    },
   
   title: {
-    text: 'Dashboard'
+    text: 'Gráfico de Acesso'
   },
 
   yAxis: {
@@ -77,7 +78,7 @@ Highcharts.chart('container', {
     <?php foreach($colunaNotas as $colNota){ $dist+=$colNota['valor'];$ativs+=1;} ?>
       {
     name: 'Acessos',
-    data: [<?php echo $acessoDB['acesso'] ?>]
+    data: [<?php echo $rowAgo[0] ?>,<?php echo $rowSet[0] ?>,<?php echo $rowOut[0] ?>,<?php echo $rowNov[0] ?>,<?php echo $rowDez[0] ?>]
   }],
 
   responsive: {
