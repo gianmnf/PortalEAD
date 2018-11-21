@@ -53,6 +53,10 @@ Highcharts.chart('container', {
     text: 'Gráfico de Acesso'
   },
 
+  subtitle: {
+    text: 'Total de Acessos: <?php echo $rowms[0] ?>'
+  },
+
   yAxis: {
     title: {
       text: 'Informações'
@@ -75,7 +79,6 @@ Highcharts.chart('container', {
   },
 
   series: [
-    <?php foreach($colunaNotas as $colNota){ $dist+=$colNota['valor'];$ativs+=1;} ?>
       {
     name: 'Acessos',
     data: [<?php echo $rowAgo[0] ?>,<?php echo $rowSet[0] ?>,<?php echo $rowOut[0] ?>,<?php echo $rowNov[0] ?>,<?php echo $rowDez[0] ?>]

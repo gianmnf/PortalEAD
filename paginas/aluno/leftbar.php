@@ -37,13 +37,7 @@
                       <i class="material-icons">grade</i>
                       <span class="nav-text">Notas</span>
                     </a>
-                </li>  
-                <li class="bold">
-                  <a onclick="mostraDiv('desempenho')" class="waves-effect waves-cyan">
-                      <i class="material-icons">pie_chart</i>
-                      <span class="nav-text">Desempenho</span>
-                    </a>
-                </li>               
+                </li>             
                 <li class="bold">
                   <a href="paginas/forum/" target="_blank" class="waves-effect waves-cyan">
                       <i class="material-icons">group</i>

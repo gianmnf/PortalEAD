@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 $con=mysqli_connect("localhost","root","","bancoead");
 $id = $_SESSION['id_usuario'];
 $sql = "SELECT * FROM atividades";
@@ -9,11 +10,13 @@ $set = mysqli_query($con,"SELECT count(month(dataAcesso)) FROM acessos where id_
 $out = mysqli_query($con,"SELECT count(month(dataAcesso)) FROM acessos where id_aluno=$id and month(dataAcesso) = 10 and Year(dataAcesso) = 2018");
 $nov = mysqli_query($con,"SELECT count(month(dataAcesso)) FROM acessos where id_aluno=$id and month(dataAcesso) = 11 and Year(dataAcesso) = 2018");
 $dez = mysqli_query($con,"SELECT count(month(dataAcesso)) FROM acessos where id_aluno=$id and month(dataAcesso) = 12 and Year(dataAcesso) = 2018");
+$totalMeses = mysqli_query($con,"SELECT count(dataAcesso) FROM acessos where id_aluno=$id and year(dataAcesso) = 2018");
 $rowAgo= mysqli_fetch_array($ago);
 $rowSet= mysqli_fetch_array($set);
 $rowOut= mysqli_fetch_array($out);
 $rowNov= mysqli_fetch_array($nov);
 $rowDez= mysqli_fetch_array($dez);
+$rowms = mysqli_fetch_array($totalMeses);
 // ------------------------------------------- //
 $resultado = mysqli_query($con,$sql);
 $resultadoNota = mysqli_query($con,$sql);
@@ -51,7 +54,7 @@ $ativs=0;
             <br>
             <h5 style="display:block; margin:auto; text-align:center; font-size: 2em;">Para navegar no portal,clique nos botões na lateral da página.</h5>
             <br>
-            <img src="images/home.png" alt="conversa" class="responsive-img" style="display:block; margin:auto;">
+            <div id="container" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
           </div>
           </div>
           <div id="home" style="display:none;">
@@ -61,6 +64,8 @@ $ativs=0;
             <h5 style="display:block; margin:auto; text-align:center; font-size: 2em;">Para navegar no portal,clique nos botões na lateral da página.</h5>
             <br>
             <img src="images/home.png" alt="conversa" class="responsive-img" style="display:block; margin:auto;">
+            <br>
+            <div id="container" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
           </div>
           <div id="ativ" style="display:none; margin:auto;">
             <h4 style="text-align:center; color:white">Atividades</h4>
@@ -97,7 +102,7 @@ $ativs=0;
             <table class="centered responsive-table">
         <thead>
           <tr>
-              <th style="color:white;">Atividade<</th>
+              <th style="color:white;">Atividade</th>
               <th style="color:white;">Valor</th>
               <th style="color:white;">Valor Obtido/th>
           </tr>
@@ -112,10 +117,6 @@ $ativs=0;
         <?php } ?>
         </tbody>
       </table>
-          </div>
-          <div id="desempenho" style="display:none; margin:auto;">
-          <br>
-            <div id="container" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
           </div>
           <div id="materiais" style="display:none; margin:auto;">
             <h4 style="text-align:center; color:white">Materiais</h4>
